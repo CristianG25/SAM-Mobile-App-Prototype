@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Audio-only guide</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style id="gh-frame">html{background:#D9D7CC}body{margin:0 auto !important;width:390px;min-height:844px;background:#E8E7D5;box-shadow:0 10px 40px rgba(0,0,0,0.18)}@media (max-width:480px){html{background:#E8E7D5}body{box-shadow:none}}</style>
+<script src="./react.production.min.js"></script>
+<script src="./react-dom.production.min.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<style>
+body{margin:0;font-family:'Atkinson Hyperlegible',Verdana,sans-serif;color:#F5F3EF}
+a{color:#FFD45C}a:hover{color:#FFE28F}
+.scroller{scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:transparent transparent}
+.scroller::-webkit-scrollbar{width:6px;background:transparent}
+.scroller::-webkit-scrollbar-thumb{background:transparent;border-radius:3px}
+.scroller.is-scrolling{scrollbar-color:rgba(245,243,239,0.22) transparent}
+.scroller.is-scrolling::-webkit-scrollbar-thumb{background:rgba(245,243,239,0.22)}
+.intro>*{animation:rise .7s cubic-bezier(.22,.8,.24,1) both}
+.intro>*:nth-child(1){animation-delay:0.05s}.intro>*:nth-child(2){animation-delay:0.13s}.intro>*:nth-child(3){animation-delay:0.21s}.intro>*:nth-child(4){animation-delay:0.29s}.intro>*:nth-child(5){animation-delay:0.37s}.intro>*:nth-child(6){animation-delay:0.45s}.intro>*:nth-child(7){animation-delay:0.53s}.intro>*:nth-child(8){animation-delay:0.61s}.intro>*:nth-child(9){animation-delay:0.69s}.intro>*:nth-child(10){animation-delay:0.77s}.intro>*:nth-child(11){animation-delay:0.85s}
+.stagger>*{animation:rise .6s cubic-bezier(.22,.8,.24,1) both}
+.stagger>*:nth-child(1){animation-delay:0.35s}.stagger>*:nth-child(2){animation-delay:0.43s}.stagger>*:nth-child(3){animation-delay:0.51s}.stagger>*:nth-child(4){animation-delay:0.59s}.stagger>*:nth-child(5){animation-delay:0.67s}.stagger>*:nth-child(6){animation-delay:0.75s}.stagger>*:nth-child(7){animation-delay:0.83s}
+.hero-in{animation:heroin .9s cubic-bezier(.22,.8,.24,1) both}
+.navin{animation:navup .7s cubic-bezier(.22,.8,.24,1) .2s both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes heroin{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+@keyframes navup{from{transform:translateY(100%)}to{transform:none}}
+.eq{display:inline-flex;align-items:flex-end;gap:3px;height:16px}.eq i{display:block;width:4px;border-radius:2px;background:#FFD45C;animation:eq .9s ease-in-out infinite}
+.eq i:nth-child(1){height:6px}.eq i:nth-child(2){height:14px;animation-delay:.15s}.eq i:nth-child(3){height:9px;animation-delay:.3s}.eq i:nth-child(4){height:12px;animation-delay:.45s}
+@keyframes eq{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}.eq i{transform-origin:bottom}
+.gstep{animation:rise .45s cubic-bezier(.22,.8,.24,1) both}
+@media (prefers-reduced-motion: reduce){.eq i,.gstep{animation:none}}
+@media (prefers-reduced-motion: reduce){.intro>*,.stagger>*,.hero-in,.navin{animation:none}}
+::-webkit-scrollbar-button{display:none;width:0;height:0}
+::-webkit-scrollbar-corner{background:transparent}
+@media (prefers-reduced-motion: reduce){[style*="translateY(110%)"]{transition:opacity .2s linear !important}}
+.cta{transition:box-shadow .25s ease, transform .25s ease, background-color .25s ease}
+.cta:hover{background-color:#FFD23A !important;box-shadow:0 0 0 4px rgba(249,200,24,0.28),0 8px 28px rgba(249,200,24,0.65),0 2px 6px rgba(120,90,0,0.18);transform:translateY(-1px)}
+.cta:active{transform:translateY(0) scale(.98);box-shadow:0 0 0 3px rgba(249,200,24,0.3),0 3px 10px rgba(249,200,24,0.5)}
+.cta:focus-visible{outline:3px solid #1A1A1F;outline-offset:3px;box-shadow:0 0 0 6px rgba(249,200,24,0.35),0 8px 28px rgba(249,200,24,0.6)}
+@media (prefers-reduced-motion: reduce){.cta,.cta:hover,.cta:active{transition:none;transform:none}}
+.btn2{transition:background-color .2s ease, box-shadow .2s ease, transform .2s ease}
+.btn2:hover:not(:disabled){background-color:#F4F3EA !important;box-shadow:0 4px 12px rgba(26,26,31,0.12);transform:translateY(-1px)}
+.btn2:active:not(:disabled){transform:translateY(0) scale(.98);box-shadow:0 1px 4px rgba(26,26,31,0.12)}
+.btn2:focus-visible{outline:3px solid #2C3E9E;outline-offset:3px}
+.btn2d{transition:background-color .2s ease, box-shadow .2s ease, transform .2s ease}
+.btn2d:hover:not(:disabled){background-color:rgba(245,243,239,0.12) !important;box-shadow:0 0 0 3px rgba(245,243,239,0.12);transform:translateY(-1px)}
+.btn2d:active:not(:disabled){transform:translateY(0) scale(.98)}
+.btn2d:focus-visible{outline:3px solid #FFD45C;outline-offset:3px}
+@media (prefers-reduced-motion: reduce){.btn2,.btn2:hover,.btn2:active,.btn2d,.btn2d:hover,.btn2d:active{transition:none;transform:none}}
+.navi{border-radius:14px;margin:0 2px;transition:background-color .2s ease, color .2s ease}
+.navi svg{transition:translate .2s ease}
+.navi:hover{background-color:rgba(26,26,31,0.045)}
+.navi:hover svg{translate:0 -1px}
+.navi:active{background-color:rgba(26,26,31,0.08)}
+.navi:focus-visible{outline:3px solid #2C3E9E;outline-offset:-3px}
+@media (prefers-reduced-motion: reduce){.navi,.navi svg{transition:none}.navi:hover svg{translate:none}}
+.abtn{transition:background-color .2s ease, box-shadow .2s ease, translate .2s ease}
+.abtn:hover:not(:disabled):not([aria-pressed="true"]){background-color:#2A2D37 !important;box-shadow:0 0 0 1px rgba(255,212,92,0.35);translate:0 -1px}
+.abtn[aria-pressed="true"]:hover{background-color:#FFD23A !important;translate:0 -1px}
+.abtn:active:not(:disabled){translate:0 0;background-color:#33363F}
+.abtn:focus-visible{outline:3px solid #FFD45C;outline-offset:3px}
+@media (prefers-reduced-motion: reduce){.abtn,.abtn:hover{transition:none;translate:none}}
+.eq i:nth-child(5){height:8px;animation-delay:.6s}
+.eq.eq-off i{animation-play-state:paused;opacity:.55}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="width: 390px; height: 844px; background: #0E0F14; color: #F5F3EF; display: flex; flex-direction: column; overflow: hidden; position: relative; box-sizing: border-box">
+<main class="{{scrollClass}}" onScroll="{{onScroll}}" style="flex: 1; min-height: 0; min-width: 0; overflow-y: auto; overflow-x: hidden; padding: 52px 10px 108px 16px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<a class="btn2d" href="Main.dc.html" aria-label="Exit audio guide" style="flex: 0 0 48px; width: 48px; height: 48px; min-width: 48px; min-height: 48px; max-height: 48px; aspect-ratio: 1 / 1; box-sizing: border-box; padding: 0; border-radius: 50%; border: 2px solid #F5F3EF; display: flex; align-items: center; justify-content: center; color: #F5F3EF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 5l-7 7 7 7"></path></svg></a>
+<span style="font-size: 16px; font-weight: 700; padding: 8px 14px; border-radius: 20px; background: #FFD45C; color: #0E0F14">Audio-only mode</span>
+</div>
+<sc-if value="{{stop.imgVenus}}" hint-placeholder-val="{{ true }}"><div style="flex: 0 0 210px; height: 210px; border-radius: 20px; overflow: hidden; background: #1F2129"><img src="70a38660bc221fb69de2c62284241782.jpg" alt="Sandro Botticelli, The Birth of Venus, about 1485" style="width: 100%; height: 100%; object-fit: cover; object-position: 48% 30%; display: block"></div></sc-if>
+<sc-if value="{{stop.imgNile}}" hint-placeholder-val="{{ false }}"><div style="flex: 0 0 210px; height: 210px; border-radius: 20px; overflow: hidden; background: #1F2129"><img src="c63c2a163de729b06335b37000508338.jpg" alt="Painted wall scene of a king offering to the enthroned god Osiris" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; display: block"></div></sc-if>
+<sc-if value="{{stop.imgMono}}" hint-placeholder-val="{{ false }}"><div style="flex: 0 0 210px; height: 210px; border-radius: 20px; overflow: hidden; background: #1F2129"><img src="2a17403471e3109b5ea5ef17f5f5f609.jpg" alt="Tara Donovan, Untitled (Mylar), 2011, detail" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; display: block"></div></sc-if>
+<sc-if value="{{stop.imgKondo}}" hint-placeholder-val="{{ false }}"><div style="flex: 0 0 210px; height: 210px; border-radius: 20px; overflow: hidden; background: #1F2129"><img src="6720d2c63ec68d878a6d5706819b0144.jpg" alt="Kondō Takahiro, Reflection: TK Self-Portraits, 2010" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; display: block"></div></sc-if>
+<div aria-live="polite" style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 18px; font-weight: 700; color: #FFD45C">Stop {{num}} of {{total}} · {{stop.show}}</span>
+<h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1.05; overflow-wrap: anywhere">{{stop.title}}</h1>
+<span style="font-size: 19px">{{stop.artist}}</span>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 8px 0">
+<button class="cta" type="button" onClick="{{togglePlay}}" aria-label="{{playLabel}}" style="width: 132px; height: 132px; border-radius: 66px; border: 0; background: #F9C818; color: #0E0F14; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<sc-if value="{{playing}}" hint-placeholder-val="{{ false }}"><svg width="52" height="52" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg></sc-if>
+<sc-if value="{{paused}}" hint-placeholder-val="{{ true }}"><svg width="56" height="56" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></sc-if>
+</button>
+<div style="width: 100%; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 12px"><span style="font-size: 15px; font-weight: 700; line-height: 16px; color: {{trackColor}}">{{trackLabel}}</span><span class="{{eqClass}}" aria-hidden="true" style="height: 14px; margin-bottom: 2px; margin-right: 0"><i></i><i></i><i></i><i></i><i></i></span></div>
+<div role="progressbar" aria-label="{{trackLabel}}" aria-valuemin="0" aria-valuemax="{{durS}}" aria-valuenow="{{posS}}" aria-valuetext="{{elapsed}} of {{duration}}" style="height: 8px; border-radius: 4px; background: #33353F; overflow: hidden"><div style="{{barStyle}}"></div></div>
+<div style="display: flex; justify-content: space-between; font-size: 16px; font-variant-numeric: tabular-nums"><span>{{elapsed}}</span><span>{{duration}}</span></div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<button class="btn2d" type="button" onClick="{{prev}}" disabled="{{atStart}}" aria-disabled="{{atStartAria}}" style="{{prevStyle}}">Previous stop</button>
+<button class="btn2d" type="button" onClick="{{next}}" disabled="{{atEnd}}" aria-disabled="{{atEndAria}}" style="{{nextStyle}}">Next stop</button>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<button type="button" class="abtn" onClick="{{toggleDescribe}}" aria-pressed="{{descPressed}}" style="{{descBtnStyle}}"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="{{descIcon}}" stroke-width="2" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg><span style="display: flex; flex-direction: column; gap: 2px"><span>{{descLabel}}</span><span style="font-size: 14px; font-weight: 400; color: {{descSubColor}}">{{descSub}}</span></span></button>
+<sc-if value="{{describing}}" hint-placeholder-val="{{ false }}"><div style="background: #1F2129; border-left: 4px solid #FFD45C; border-radius: 12px; padding: 14px 16px; font-size: 19px; line-height: 1.5">{{descText}}</div></sc-if>
+<button type="button" class="abtn" onClick="{{openGuide}}" disabled="{{atEnd}}" aria-disabled="{{atEndAria}}" style="{{guideBtnStyle}}"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="{{guideIcon}}" stroke-width="2" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8z"></path></svg><span style="display: flex; flex-direction: column; gap: 2px"><span>{{guideLabel}}</span><span style="font-size: 14px; font-weight: 400; color: {{guideSubColor}}">{{guideSub}}</span></span></button>
+<button type="button" class="abtn" style="display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 8px 16px; border-radius: 16px; border: 0; background: #1F2129; color: #F5F3EF; font: inherit; font-size: 18px; font-weight: 700; text-align: left; cursor: pointer"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFD45C" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg><span style="display: flex; flex-direction: column; gap: 2px"><span>Voice commands</span><span style="font-size: 14px; font-weight: 400; color: #C9C6BF">Say "next"</span></span></button>
+</div>
+</main>
+<sc-if value="{{guide}}" hint-placeholder-val="{{ false }}">
+<section role="dialog" aria-modal="true" aria-label="{{gAria}}" style="position: absolute; inset: 0; z-index: 2; background: #0E0F14; color: #F5F3EF; display: flex; flex-direction: column; gap: 16px; padding: 52px 16px 108px; box-sizing: border-box; overflow-y: auto">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<button class="btn2d" type="button" onClick="{{closeGuide}}" aria-label="Stop guidance" style="flex: 0 0 48px; width: 48px; height: 48px; min-width: 48px; min-height: 48px; max-height: 48px; aspect-ratio: 1 / 1; box-sizing: border-box; padding: 0; border-radius: 50%; border: 2px solid #F5F3EF; background: transparent; color: #F5F3EF; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+<span style="font-size: 16px; font-weight: 700; padding: 8px 14px; border-radius: 20px; background: #FFD45C; color: #0E0F14">Guiding you</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 16px; font-weight: 700; color: #FFD45C">To Stop {{gNum}} · {{gDest.show}}</span>
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; line-height: 1.05">{{gDest.title}}</span>
+<span style="font-size: 17px; color: #C9C6BF">{{gDest.room}} · Level {{gDest.level}}</span>
+</div>
+<div role="progressbar" aria-label="Directions progress" aria-valuemin="1" aria-valuemax="{{gTotal}}" aria-valuenow="{{gHuman}}" style="display: flex; gap: 6px">
+<sc-for list="{{gSegs}}" as="seg" hint-placeholder-count="4"><span style="{{seg.style}}"></span></sc-for>
+</div>
+<div class="gstep" aria-live="assertive" style="{{gCardStyle}}">
+<div style="display: flex; align-items: center; justify-content: space-between">
+<span style="width: 72px; height: 72px; border-radius: 36px; background: #F9C818; color: #0E0F14; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="{{gStep.path}}"></path></svg></span>
+<span style="display: flex; align-items: center; gap: 8px; font-size: 15px; color: #C9C6BF"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>{{gSpeaking}}</span>
+</div>
+<span style="font-size: 15px; font-weight: 700; color: #FFD45C">Direction {{gHuman}} of {{gTotal}}</span>
+<span style="font-size: 28px; font-weight: 700; line-height: 1.25">{{gStep.text}}</span>
+<span style="font-size: 18px; color: #C9C6BF">{{gStep.dist}}</span>
+</div>
+<span style="font-size: 15px; color: #C9C6BF; display: flex; gap: 8px; align-items: center"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFD45C" stroke-width="2" stroke-linecap="round"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M3 8v8M21 8v8"></path></svg>Your phone vibrates at each turn</span>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: auto">
+<button class="btn2d" type="button" onClick="{{gRepeat}}" style="min-height: 64px; border-radius: 18px; border: 2px solid #F5F3EF; background: transparent; color: #F5F3EF; font: inherit; font-size: 18px; font-weight: 700; cursor: pointer">Repeat</button>
+<button class="cta" type="button" onClick="{{gNext}}" style="min-height: 64px; border-radius: 18px; border: 0; background: #F9C818; color: #0E0F14; font: inherit; font-size: 18px; font-weight: 700; cursor: pointer; padding: 0 10px">{{gNextLabel}}</button>
+</div>
+<a href="Map.dc.html" style="align-self: center; font-size: 17px; font-weight: 700; color: #FFD45C; padding: 8px">See route on map</a>
+</section>
+</sc-if>
+<div style="{{navWrap}}">
+<nav class="navin" aria-label="Main" style="display: flex; justify-content: space-around; height: 84px; padding: 6px 8px 22px; box-sizing: border-box; background: #DDDDDE; border: 1px solid rgba(255,255,255,0.7); border-bottom: 0; border-radius: 20px 20px 0 0; box-shadow: 0 -2px 6px rgba(60,45,20,0.05), 0 -10px 28px rgba(60,45,20,0.08); position: relative; z-index: 1">
+<a class="navi" href="Main.dc.html" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #33312C; font-size: 12px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"></path></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">Home<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: transparent"></span></span></a>
+<a class="navi" href="Exhibitions.dc.html" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #33312C; font-size: 12px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"></rect><path d="M4 16l5-5 4 4 3-3 4 4"></path></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">On view<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: transparent"></span></span></a>
+<a class="navi" href="Map.dc.html" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #33312C; font-size: 12px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"></path><path d="M9 4v14M15 6v14"></path></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">Map<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: transparent"></span></span></a>
+<a class="navi" href="Tickets.dc.html" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #33312C; font-size: 12px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"></path></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">Tickets<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: transparent"></span></span></a>
+<a class="navi" href="AudioGuide.dc.html" aria-current="page" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #2C3E9E; font-size: 12px; font-weight: 700"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"></path><rect x="3" y="14" width="4" height="6" rx="1.5" fill="currentColor"></rect><rect x="17" y="14" width="4" height="6" rx="1.5" fill="currentColor"></rect></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">Audio<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: #F9C818"></span></span></a>
+</nav>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+_topReset() { const r = this._root; if (!r) return; [r, ...r.querySelectorAll('*')].forEach(e => { if (e.scrollTop) e.scrollTop = 0; }); }
+_bootTop() { this._topReset(); this._tt1 = setTimeout(() => this._topReset(), 60); this._tt2 = setTimeout(() => this._topReset(), 350); }
+
+constructor(p) { super(p); this.state = { i: 1, playing: true, scrolling: false, pos: 0, describing: false, dpos: 0 }; }
+_run(on) { clearInterval(this._iv); this._iv = null; if (on) this._iv = setInterval(() => this._tick(), 1000); }
+_tick() { const st = this.state;
+if (st.describing) { if (st.dpos + 1 >= 85) { this.setState({ describing: false, dpos: 0 }); } else this.setState({ dpos: st.dpos + 1 }); return; }
+if (st.pos + 1 >= 220) { this._run(false); this.setState({ pos: 220, playing: false }); } else this.setState({ pos: st.pos + 1 }); }
+componentDidMount() { this._bootTop(); const start = () => { this.setState({ i: 1, pos: 0, playing: true, describing: false, dpos: 0, guide: false, gstep: 0 }); this._run(true); }; start(); this._boot = setTimeout(start, 400); }
+componentWillUnmount() { this._run(false); clearTimeout(this._gr); clearTimeout(this._boot); }
+renderVals() {
+const stops = [
+{ title: 'Welcome to the galleries', artist: 'Introduction', show: 'Highlights tour', imgVenus: false, imgNile: false, imgMono: false, imgKondo: false },
+{ title: 'The Birth of Venus', artist: 'Sandro Botticelli, about 1485', show: 'Born of the Sea', imgVenus: false, imgNile: false, imgMono: false, imgKondo: false, imgVenus: true, desc: 'A wide painting, nearly three meters across. At the center, Venus stands on a large open scallop shell floating near the shore. She is pale, with long red-gold hair falling to her knees. On the left, two winged wind gods hold each other and blow her toward land, with pink roses drifting in the air. On the right, a woman in a flowered white dress waits on the shore, holding out a red cloak. The sea is calm and green-blue, under a soft, pale sky.' },
+{ title: 'Offering to Osiris', artist: 'Egyptian artist, New Kingdom', show: 'Journey Beyond the Nile', imgVenus: false, imgNile: false, imgMono: false, imgKondo: false, imgNile: true, desc: 'A painted wall scene on a cream background, shown in flat side profile. In the center, the god Osiris sits on a striped throne. His skin is blue-green and he wears a tall white crown, holding a crook and flail across his chest. A goddess with a red sun disk on her head stands behind him, one hand raised. Facing him, a king in a white pleated kilt holds out a small offering bowl. Columns of hieroglyphs in red, blue and green run across the top.' },
+{ title: 'Untitled (Mylar)', artist: 'Tara Donovan, 2011', show: 'Monochrome', imgVenus: false, imgNile: false, imgMono: false, imgKondo: false, imgMono: true, desc: 'A close view of a large sculpture made of hundreds of spheres, packed tightly like soap bubbles or cells. Each sphere is built from curled strips of silver Mylar film, joined with glue, so the surface looks like overlapping petals. The spheres range from the size of a fist to wider than an arm span. Light bounces off the shiny film, so the piece shifts between bright silver and deep charcoal as you move.' },
+{ title: 'Reflection: TK "Self-Portraits"', artist: 'Kondō Takahiro, 2010', show: 'The Kondō Family', imgVenus: false, imgNile: false, imgMono: false, imgKondo: false, imgKondo: true, desc: 'Five life-size porcelain heads set on a pale surface, each a cast of the artist\'s own face. All five tilt slightly upward with eyes closed, calm and still. Firing in an open pit left each head marked differently: some are nearly white, others smoky gray or almost black, with soft clouds of soot across the cheeks and brow. Together they read like one person seen at five different moments.' }
+];
+const i = this.state.i, playing = this.state.playing, describing = this.state.describing;
+const mmss = (t) => Math.floor(t / 60) + ':' + String(t % 60).padStart(2, '0');
+const dur = describing ? 85 : 220, pos = describing ? this.state.dpos : this.state.pos;
+const go = (n) => { this.setState({ i: n, pos: 0, describing: false, dpos: 0 }); };
+const P = { straight: 'M12 20V4M6 10l6-6 6 6', left: 'M18 20v-8a4 4 0 0 0-4-4H5M9 4L5 8l4 4', right: 'M6 20v-8a4 4 0 0 1 4-4h13M19 4l4 4-4 4', up: 'M5 3h14v18H5zM12 16V8M9 11l3-3 3 3', down: 'M5 3h14v18H5zM12 8v8M9 13l3 3 3-3', arrive: 'M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12zM9 9.5l2 2 4-4' };
+const routes = {
+1: [['straight','Walk straight ahead through the Level 2 lobby.','About 30 steps'],['right','Turn right at the tall wooden doors.','About 10 steps'],['arrive','You have arrived. The Birth of Venus is on the wall in front of you.','Forum Gallery']],
+2: [['left','Leave the Forum Gallery and turn left.','About 15 steps'],['straight','Continue to the elevators at the end of the hall.','About 25 steps'],['up','Take the elevator up to Level 3. Buttons have braille labels.','1 floor up'],['left','Step out of the elevator and turn left.','About 20 steps'],['arrive','You have arrived. Offering to Osiris is on your right.','Ebsworth Gallery']],
+3: [['straight','Walk back to the elevators behind you.','About 20 steps'],['down','Take the elevator down to Level 2.','1 floor down'],['right','Step out of the elevator and turn right.','About 35 steps'],['arrive','You have arrived. Untitled (Mylar) fills the center of the room.','Chase Open Studio']],
+4: [['straight','Head back to the elevators.','About 35 steps'],['up','Take the elevator up to Level 3.','1 floor up'],['right','Step out and turn right. The gallery is the small room ahead.','About 15 steps'],['arrive','You have arrived. The five porcelain heads sit on a low platform in the center.','SAM Next Gallery']]
+};
+const places = { 1: ['Forum Gallery', 2], 2: ['Ebsworth Gallery', 3], 3: ['Chase Open Studio', 2], 4: ['SAM Next Gallery', 3] };
+const di = Math.min(i + 1, stops.length - 1);
+const route = (routes[di] || []).map((r) => ({ kind: r[0], path: P[r[0]], text: r[1], dist: r[2] }));
+const gs = Math.min(this.state.gstep || 0, Math.max(0, route.length - 1));
+const gLast = gs === route.length - 1;
+return {
+setRoot: (el) => { this._root = el; },
+navWrap: 'position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; ' + (this.state.navHidden ? 'transform: translateY(110%); opacity: 0; transition: transform .28s cubic-bezier(.4,0,1,1), opacity .22s ease-in; pointer-events: none' : 'transform: translateY(0); opacity: 1; transition: transform .5s cubic-bezier(.34,1.45,.64,1), opacity .25s ease-out'),
+
+scrollClass: this.state.scrolling ? 'intro scroller is-scrolling' : 'intro scroller',
+onScroll: () => {  if (!this.state.scrolling) this.setState({ scrolling: true }); clearTimeout(this._hideTimer); this._hideTimer = setTimeout(() => this.setState({ scrolling: false }), 900); },
+stop: stops[i], num: String(i + 1), total: String(stops.length),
+playing, paused: !playing, playLabel: playing ? 'Pause' : 'Play',
+togglePlay: () => { if (playing) { this._run(false); this.setState({ playing: false }); return; } const end = this.state.describing ? this.state.dpos >= 84 : this.state.pos >= 219; this._run(true); this.setState(end ? { playing: true, pos: this.state.describing ? this.state.pos : 0, dpos: 0 } : { playing: true }); },
+next: () => { if (i < stops.length - 1) go(i + 1); },
+guide: !!this.state.guide,
+gDest: Object.assign({}, stops[di], { room: (places[di] || ['', ''])[0], level: String((places[di] || ['', ''])[1]) }),
+gNum: String(di + 1), gAria: 'Directions to ' + stops[di].title,
+gStep: route[gs] || { path: '', text: '', dist: '' }, gHuman: String(gs + 1), gTotal: String(route.length),
+gSegs: route.map((r, k) => ({ style: 'flex: 1; height: 6px; border-radius: 3px; background: ' + (k <= gs ? '#F9C818' : '#33353F') })),
+gCardStyle: 'display: flex; flex-direction: column; gap: 10px; background: #1F2129; border-radius: 20px; padding: 18px; border: 2px solid ' + (gLast ? '#F9C818' : 'transparent'),
+gSpeaking: this.state.grep ? 'Repeating…' : 'Speaking…',
+gNextLabel: gLast ? 'Start Stop ' + (di + 1) : 'Next direction',
+gRepeat: () => { this.setState({ grep: true }); clearTimeout(this._gr); this._gr = setTimeout(() => this.setState({ grep: false }), 1600); },
+gNext: () => { if (!gLast) { this.setState({ gstep: gs + 1, grep: false }); return; } this.setState({ guide: false, gstep: 0, i: di, pos: 0, describing: false, dpos: 0, playing: true }); this._run(true); },
+openGuide: () => { if (i >= stops.length - 1) return; this._run(false); this.setState({ guide: true, gstep: 0, playing: false, describing: false }); },
+closeGuide: () => this.setState({ guide: false, gstep: 0 }),
+guideLabel: i === stops.length - 1 ? 'Last stop on this tour' : 'Guide me to the next stop',
+guideSub: i === stops.length - 1 ? 'Thanks for listening' : 'Spoken, step-by-step directions',
+guideSubColor: i === stops.length - 1 ? '#6E7079' : '#C9C6BF',
+guideIcon: i === stops.length - 1 ? '#6E7079' : '#FFD45C',
+guideBtnStyle: 'display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 8px 16px; border-radius: 16px; border: 0; font: inherit; font-size: 18px; font-weight: 700; text-align: left; ' + (i === stops.length - 1 ? 'background: #16171D; color: #6E7079; cursor: default' : 'background: #1F2129; color: #F5F3EF; cursor: pointer'),
+atEnd: i === stops.length - 1, atEndAria: i === stops.length - 1 ? 'true' : 'false',
+nextStyle: 'min-height: 68px; border-radius: 18px; background: transparent; font: inherit; font-size: 18px; font-weight: 700; ' + (i === stops.length - 1 ? 'border: 2px solid #4A4C55; color: #6E7079; cursor: default' : 'border: 2px solid #F5F3EF; color: #F5F3EF; cursor: pointer'),
+prev: () => { if (i > 0) go(i - 1); },
+atStart: i === 0, atStartAria: i === 0 ? 'true' : 'false',
+prevStyle: 'min-height: 68px; border-radius: 18px; background: transparent; font: inherit; font-size: 18px; font-weight: 700; ' + (i === 0 ? 'border: 2px solid #4A4C55; color: #6E7079; cursor: default' : 'border: 2px solid #F5F3EF; color: #F5F3EF; cursor: pointer'),
+describing, descPressed: describing ? 'true' : 'false',
+descLabel: describing ? 'Describing the artwork…' : 'Describe the artwork',
+descSub: describing ? 'Tap to return to the tour' : 'Hear what the artwork looks like',
+descSubColor: describing ? '#0E0F14' : '#C9C6BF',
+descIcon: describing ? '#0E0F14' : '#FFD45C',
+descBtnStyle: 'display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 8px 16px; border-radius: 16px; font: inherit; font-size: 18px; font-weight: 700; text-align: left; cursor: pointer; ' + (describing ? 'background: #F9C818; color: #0E0F14; border: 0' : 'background: #1F2129; color: #F5F3EF; border: 0'),
+toggleDescribe: () => { if (describing) { this.setState({ describing: false }); return; } this._run(true); this.setState({ describing: true, dpos: 0, playing: true }); },
+descText: stops[i].desc || 'A verbal description of this artwork will play here.',
+eqClass: playing ? 'eq' : 'eq eq-off',
+trackLabel: describing ? 'Visual description' : 'Audio description',
+trackColor: '#FFD45C',
+elapsed: mmss(pos), duration: mmss(dur), posS: String(pos), durS: String(dur),
+barStyle: 'height: 100%; width: ' + (pos / dur * 100).toFixed(2) + '%; background: #F9C818; transition: ' + (pos <= 1 ? 'none' : 'width 1s linear')
+};
+}
+}
+</script>
+</body>
+</html>

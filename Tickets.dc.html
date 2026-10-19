@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Buy tickets</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style id="gh-frame">html{background:#D9D7CC}body{margin:0 auto !important;width:390px;min-height:844px;background:#E8E7D5;box-shadow:0 10px 40px rgba(0,0,0,0.18)}@media (max-width:480px){html{background:#E8E7D5}body{box-shadow:none}}</style>
+<script src="./react.production.min.js"></script>
+<script src="./react-dom.production.min.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<style>
+body{margin:0;font-family:'Atkinson Hyperlegible',Verdana,sans-serif;color:#1A1A1F}
+a{color:#2C3E9E}a:hover{color:#1E2C78}
+.scroller{scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:transparent transparent}
+.scroller::-webkit-scrollbar{width:6px;background:transparent}
+.scroller::-webkit-scrollbar-thumb{background:transparent;border-radius:3px}
+.scroller.is-scrolling{scrollbar-color:rgba(26,26,31,0.16) transparent}
+.scroller.is-scrolling::-webkit-scrollbar-thumb{background:rgba(26,26,31,0.16)}
+.intro>*{animation:rise .7s cubic-bezier(.22,.8,.24,1) both}
+.intro>*:nth-child(1){animation-delay:0.05s}.intro>*:nth-child(2){animation-delay:0.13s}.intro>*:nth-child(3){animation-delay:0.21s}.intro>*:nth-child(4){animation-delay:0.29s}.intro>*:nth-child(5){animation-delay:0.37s}.intro>*:nth-child(6){animation-delay:0.45s}.intro>*:nth-child(7){animation-delay:0.53s}.intro>*:nth-child(8){animation-delay:0.61s}.intro>*:nth-child(9){animation-delay:0.69s}.intro>*:nth-child(10){animation-delay:0.77s}.intro>*:nth-child(11){animation-delay:0.85s}
+.stagger>*{animation:rise .6s cubic-bezier(.22,.8,.24,1) both}
+.stagger>*:nth-child(1){animation-delay:0.35s}.stagger>*:nth-child(2){animation-delay:0.43s}.stagger>*:nth-child(3){animation-delay:0.51s}.stagger>*:nth-child(4){animation-delay:0.59s}.stagger>*:nth-child(5){animation-delay:0.67s}.stagger>*:nth-child(6){animation-delay:0.75s}.stagger>*:nth-child(7){animation-delay:0.83s}
+.hero-in{animation:heroin .9s cubic-bezier(.22,.8,.24,1) both}
+.navin{animation:navup .7s cubic-bezier(.22,.8,.24,1) .2s both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes heroin{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+@keyframes navup{from{transform:translateY(100%)}to{transform:none}}
+@media (prefers-reduced-motion: reduce){.intro>*,.stagger>*,.hero-in,.navin{animation:none}}
+.trow{scrollbar-width:none;scroll-snap-type:x mandatory;cursor:grab}.trow.grabbing{scroll-snap-type:none;cursor:grabbing;user-select:none;-webkit-user-select:none}.trow.grabbing button{cursor:grabbing}
+.trow::-webkit-scrollbar{display:none}
+.cta{transition:box-shadow .25s ease, transform .25s ease, background-color .25s ease}
+.cta:hover{background-color:#FFD23A !important;box-shadow:0 0 0 4px rgba(249,200,24,0.28),0 8px 28px rgba(249,200,24,0.65),0 2px 6px rgba(120,90,0,0.18);transform:translateY(-1px)}
+.cta:active{transform:translateY(0) scale(.98);box-shadow:0 0 0 3px rgba(249,200,24,0.3),0 3px 10px rgba(249,200,24,0.5)}
+.cta:focus-visible{outline:3px solid #1A1A1F;outline-offset:3px;box-shadow:0 0 0 6px rgba(249,200,24,0.35),0 8px 28px rgba(249,200,24,0.6)}
+@media (prefers-reduced-motion: reduce){.cta,.cta:hover,.cta:active{transition:none;transform:none}}
+.sheetup{animation:sheetup .38s cubic-bezier(.22,.8,.24,1) both}.fadein{animation:fadein .3s ease both}
+@keyframes sheetup{from{transform:translateY(100%)}to{transform:none}}@keyframes fadein{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion: reduce){.sheetup,.fadein{animation:none}}
+::-webkit-scrollbar-button{display:none;width:0;height:0}
+::-webkit-scrollbar-corner{background:transparent}
+@media (prefers-reduced-motion: reduce){[style*="translateY(110%)"]{transition:opacity .2s linear !important}}
+.navi{border-radius:14px;margin:0 2px;transition:background-color .2s ease, color .2s ease}
+.navi svg{transition:translate .2s ease}
+.navi:hover{background-color:rgba(26,26,31,0.045)}
+.navi:hover svg{translate:0 -1px}
+.navi:active{background-color:rgba(26,26,31,0.08)}
+.navi:focus-visible{outline:3px solid #2C3E9E;outline-offset:-3px}
+@media (prefers-reduced-motion: reduce){.navi,.navi svg{transition:none}.navi:hover svg{translate:none}}
+.btn2{transition:background-color .2s ease, box-shadow .2s ease, transform .2s ease}
+.btn2:hover:not(:disabled){background-color:#F4F3EA !important;box-shadow:0 4px 12px rgba(26,26,31,0.12);transform:translateY(-1px)}
+.btn2:active:not(:disabled){transform:translateY(0) scale(.98);box-shadow:0 1px 4px rgba(26,26,31,0.12)}
+.btn2:focus-visible{outline:3px solid #2C3E9E;outline-offset:3px}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="width: 390px; height: 844px; background: #E8E7D5; display: flex; flex-direction: column; overflow: hidden; position: relative; box-sizing: border-box">
+<main class="{{scrollClass}}" onScroll="{{onScroll}}" style="flex: 1; min-height: 0; overflow-y: auto; padding: 52px 10px 190px 16px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1">Tickets</h1>
+<a href="Membership.dc.html" aria-label="Account and membership" style="flex: 0 0 44px; width: 44px; height: 44px; border-radius: 22px; border: 1px solid #CFCAC0; display: flex; align-items: center; justify-content: center; color: #1A1A1F; background: #FFFFFF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></a>
+</div>
+<fieldset style="min-width: 0; max-width: 100%; border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+<legend style="font-size: 15px; font-weight: 700; padding: 0; margin-bottom: 8px">When are you coming?</legend>
+<div style="display: flex; gap: 8px">
+<sc-for list="{{dates}}" as="d" hint-placeholder-count="4">
+<button type="button" onClick="{{d.pick}}" aria-pressed="{{d.on}}" aria-label="{{d.aria}}" style="{{d.style}}"><sc-if value="{{d.icon}}"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path><circle cx="8.5" cy="14.5" r="0.6" fill="currentColor"></circle><circle cx="12" cy="14.5" r="0.6" fill="currentColor"></circle><circle cx="15.5" cy="14.5" r="0.6" fill="currentColor"></circle></svg></sc-if><sc-if value="{{d.text}}"><span style="font-size: 13px">{{d.top}}</span><span style="font-size: 17px; font-weight: 700">{{d.bottom}}</span></sc-if></button>
+</sc-for>
+</div>
+</fieldset>
+<fieldset style="min-width: 0; max-width: 100%; border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+<legend style="font-size: 15px; font-weight: 700; padding: 0; margin-bottom: 8px">Entry time</legend>
+<div class="{{trowClass}}" ref="{{setTrow}}" onMouseDown="{{tDown}}" onMouseMove="{{tMove}}" onMouseUp="{{tUp}}" onMouseLeave="{{tUp}}" role="group" aria-label="Entry times" style="min-width: 0; max-width: 100%; display: flex; gap: 8px; overflow-x: auto; margin-right: -10px; padding-right: 10px; padding-bottom: 2px">
+<sc-for list="{{times}}" as="t" hint-placeholder-count="5">
+<button type="button" onClick="{{t.pick}}" aria-pressed="{{t.on}}" style="{{t.style}}">{{t.label}}</button>
+</sc-for>
+</div>
+</fieldset>
+<section style="flex: 0 0 auto; background: #FFFFFF; border: 1px solid #E2DED6; border-radius: 16px; padding: 4px 14px; box-shadow: 0 1px 2px rgba(60,45,20,0.06), 0 6px 16px rgba(60,45,20,0.08)">
+<sc-for list="{{types}}" as="r" hint-placeholder-count="4">
+<div style="{{r.rowStyle}}">
+<div style="display: flex; flex-direction: column; gap: 1px"><span style="font-size: 16px; font-weight: 700">{{r.label}}</span><span style="font-size: 14px; color: #5A5852">{{r.sub}}</span></div>
+<div style="display: flex; align-items: center; gap: 10px">
+<button type="button" onClick="{{r.dec}}" aria-label="{{r.decLabel}}" style="display: flex; align-items: center; justify-content: center; padding: 0; box-sizing: border-box; width: 44px; height: 44px; border-radius: 22px; border: 1.5px solid #B9B4AA; background: #FFFFFF; color: #1A1A1F; cursor: pointer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 9h12"></path></svg></button>
+<span aria-live="polite" style="width: 20px; text-align: center; font-size: 18px; font-weight: 700">{{r.count}}</span>
+<button type="button" onClick="{{r.inc}}" aria-label="{{r.incLabel}}" style="display: flex; align-items: center; justify-content: center; padding: 0; box-sizing: border-box; width: 44px; height: 44px; border-radius: 22px; border: 0; background: #1A1A1F; color: #FFFFFF; cursor: pointer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 9h12M9 3v12"></path></svg></button>
+</div>
+</div>
+</sc-for>
+</section>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #FFFFFF; border: 1px solid #E2DED6; border-radius: 16px; padding: 12px 14px; min-height: 64px; box-sizing: border-box; flex: 0 0 auto; box-shadow: 0 1px 2px rgba(60,45,20,0.06), 0 6px 16px rgba(60,45,20,0.08)">
+<span style="display: flex; flex-direction: column; gap: 2px"><span id="park-label" style="font-size: 16px; font-weight: 700">Add parking</span><span style="font-size: 14px; color: #5A5852">{{parkPrice}} (<a href="Parking.dc.html" style="font-weight: 700">museum garage</a>)</span></span>
+<button type="button" role="switch" aria-checked="{{parkOn}}" aria-labelledby="park-label" onClick="{{toggleParking}}" style="flex: 0 0 auto; min-width: 50px; min-height: 44px; padding: 0; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><span style="{{switchTrack}}"><span style="{{switchKnob}}"></span></span></button>
+</div>
+</main>
+<div style="{{payBar}}">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; color: #5A5852">{{summary}}</span><span aria-live="polite" style="font-size: 20px; font-weight: 700">{{total}}</span></div>
+<button type="button" class="cta" onClick="{{openPay}}" style="min-height: 54px; padding: 0 24px; border-radius: 27px; border: 0; background: #F9C818; color: #1A1A1F; font: inherit; font-size: 17px; font-weight: 700; cursor: pointer">Continue to pay</button>
+</div>
+<div style="{{navWrap}}">
+<nav class="navin" aria-label="Main" style="display: flex; justify-content: space-around; height: 84px; padding: 6px 8px 22px; box-sizing: border-box; background: rgba(255,255,255,0.58); -webkit-backdrop-filter: blur(20px) saturate(1.6); backdrop-filter: blur(20px) saturate(1.6); border: 1px solid rgba(255,255,255,0.7); border-bottom: 0; border-radius: 20px 20px 0 0; box-shadow: 0 -2px 6px rgba(60,45,20,0.05), 0 -10px 28px rgba(60,45,20,0.08); position: relative; z-index: 1">
+<a class="navi" href="Main.dc.html" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #33312C; font-size: 12px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"></path></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">Home<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: transparent"></span></span></a>
+<a class="navi" href="Exhibitions.dc.html" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #33312C; font-size: 12px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"></rect><path d="M4 16l5-5 4 4 3-3 4 4"></path></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">On view<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: transparent"></span></span></a>
+<a class="navi" href="Map.dc.html" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #33312C; font-size: 12px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"></path><path d="M9 4v14M15 6v14"></path></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">Map<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: transparent"></span></span></a>
+<a class="navi" href="Tickets.dc.html" aria-current="page" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #2C3E9E; font-size: 12px; font-weight: 700"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"></path></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">Tickets<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: #F9C818"></span></span></a>
+<a class="navi" href="AudioGuide.dc.html" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #33312C; font-size: 12px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"></path><rect x="3" y="14" width="4" height="6" rx="1.5"></rect><rect x="17" y="14" width="4" height="6" rx="1.5"></rect></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">Audio<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: transparent"></span></span></a>
+</nav>
+</div>
+<sc-if value="{{pay}}" hint-placeholder-val="{{ false }}">
+<section role="dialog" aria-modal="true" aria-label="Payment" style="position: absolute; inset: 0; z-index: 20; background: #D9D8D2; display: flex; flex-direction: column; padding: 52px 16px 24px; box-sizing: border-box">
+<div style="display: flex; align-items: center; gap: 12px">
+<button type="button" class="btn2" onClick="{{closePay}}" aria-label="Back to tickets" style="flex: 0 0 44px; width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; border: 1px solid #B9B4AA; display: flex; align-items: center; justify-content: center; color: #1A1A1F; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 5l-7 7 7 7"></path></svg></button>
+<h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1">Tickets</h1>
+</div>
+<div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center; padding-bottom: 60px">
+<svg role="img" aria-label="Construction hard hat" width="150" height="110" viewBox="0 0 150 110" fill="none">
+<ellipse cx="75" cy="100" rx="58" ry="6" fill="#1A1A1F" opacity="0.12"></ellipse>
+<path d="M28 76c0-27 21-48 47-48s47 21 47 48z" fill="#F9C818" stroke="#1A1A1F" stroke-width="3" stroke-linejoin="round"></path>
+<path d="M63 30c0-6 5-10 12-10s12 4 12 10v46H63z" fill="#FFD84D" stroke="#1A1A1F" stroke-width="3" stroke-linejoin="round"></path>
+<path d="M44 44c-6 8-9 19-9 32M106 44c6 8 9 19 9 32" stroke="#1A1A1F" stroke-width="3" stroke-linecap="round" opacity="0.35"></path>
+<rect x="14" y="74" width="122" height="14" rx="7" fill="#F9C818" stroke="#1A1A1F" stroke-width="3"></rect>
+</svg>
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 34px; line-height: 1.1; color: #1A1A1F">Coming soon</span>
+<span style="font-size: 14px; color: #5A5852; margin-top: -6px">This UI is not part of this prototype.</span>
+<span style="font-size: 13px; font-weight: 700; color: #6B6862; margin-top: -8px">Assignment 3 - Mini Design Sprint</span>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{calOpen}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; justify-content: flex-end">
+<button type="button" aria-label="Close calendar" onClick="{{closeCal}}" class="fadein" style="position: absolute; inset: 0; border: 0; padding: 0; background: rgba(26,26,31,0.45); cursor: pointer"></button>
+<div role="dialog" aria-modal="true" aria-label="Choose a date" class="sheetup" style="position: relative; background: #FFFFFF; border-radius: 24px 24px 0 0; padding: 10px 16px 30px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 -10px 40px rgba(0,0,0,0.18)">
+<div aria-hidden="true" style="align-self: center; width: 40px; height: 5px; border-radius: 3px; background: #D9D4CA"></div>
+<div style="display: flex; justify-content: space-between; align-items: center">
+<h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 28px">Choose a date</h2>
+<button type="button" onClick="{{closeCal}}" aria-label="Close" style="width: 44px; height: 44px; margin-right: -10px; border-radius: 22px; border: 0; background: transparent; color: #1A1A1F; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center">
+<button type="button" onClick="{{prevMonth}}" disabled="{{prevDisabled}}" aria-label="Previous month" style="{{prevStyle}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 5l-7 7 7 7"></path></svg></button>
+<span aria-live="polite" style="font-size: 18px; font-weight: 700">{{monthLabel}}</span>
+<button type="button" onClick="{{nextMonth}}" aria-label="Next month" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #CFCAC0; background: #FFFFFF; color: #1A1A1F; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 5l7 7-7 7"></path></svg></button>
+</div>
+<div aria-hidden="true" style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; font-size: 13px; font-weight: 700; color: #5A5852; text-align: center">
+<span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+</div>
+<div role="grid" aria-label="{{monthLabel}}" style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px">
+<sc-for list="{{cells}}" as="c" hint-placeholder-count="35">
+<sc-if value="{{c.blank}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true"></span></sc-if>
+<sc-if value="{{c.day}}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{c.pick}}" disabled="{{c.disabled}}" aria-pressed="{{c.on}}" aria-label="{{c.aria}}" style="{{c.style}}">{{c.n}}</button></sc-if>
+</sc-for>
+</div>
+<span style="font-size: 13px; color: #5A5852">Closed Mondays and Tuesdays · Open late Thursdays</span>
+<button type="button" class="cta" onClick="{{confirmCal}}" style="min-height: 54px; border-radius: 27px; border: 0; background: #F9C818; color: #1A1A1F; font: inherit; font-size: 17px; font-weight: 700; cursor: pointer">{{confirmLabel}}</button>
+</div>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+_topReset() { const r = this._root; if (!r) return; [r, ...r.querySelectorAll('*')].forEach(e => { if (e.scrollTop) e.scrollTop = 0; }); }
+_bootTop() { this._topReset(); this._tt1 = setTimeout(() => this._topReset(), 60); this._tt2 = setTimeout(() => this._topReset(), 350); }
+componentDidMount() { this._bootTop(); }
+
+constructor(p) { super(p); this.state = { sel: null, cal: false, calSel: null, calY: 0, calM: 0, time: null, counts: [2, 0, 0, 0], parking: true, scrolling: false, pay: false }; }
+renderVals() {
+const s = this.state;
+const pill = (on) => 'border-radius: 12px; font: inherit; cursor: pointer; ' + (on ? 'background: #1A1A1F; color: #FFFFFF; border: 1px solid #1A1A1F' : 'background: #FFFFFF; color: #1A1A1F; border: 1px solid #B9B4AA');
+const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const MONL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const WD = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const WDL = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const iso = (d) => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+const fromIso = (x) => { const p = x.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); };
+const now = new Date();
+const today = new Date(); today.setHours(0, 0, 0, 0);
+const lastSlot = (d) => (d.getDay() === 4 ? 19 : 16) * 60;
+const earliest = Math.max(600, Math.ceil((now.getHours() * 60 + now.getMinutes() + 60) / 30) * 30);
+const isOpen = (d) => d.getDay() !== 1 && d.getDay() !== 2 && !(d.getTime() === today.getTime() && earliest > lastSlot(d));
+const quick = []; const cur = new Date(today);
+while (quick.length < 3) { if (isOpen(cur)) quick.push(new Date(cur)); cur.setDate(cur.getDate() + 1); }
+const sel = s.sel || iso(quick[0]);
+const selD = fromIso(sel);
+const dayDiff = (d) => Math.round((d - today) / 86400000);
+const chipStyle = (on) => pill(on) + '; flex: 1; min-height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px';
+const openCal = () => { const b = fromIso(s.sel || iso(quick[0])); this.setState({ cal: true, calSel: s.sel || iso(quick[0]), calY: b.getFullYear(), calM: b.getMonth() }); };
+const dates = quick.map((q) => { const k = iso(q), dd = dayDiff(q); return {
+
+ top: dd === 0 ? 'Today' : dd === 1 ? 'Tomorrow' : WD[q.getDay()], bottom: MON[q.getMonth()] + ' ' + q.getDate(), on: sel === k ? 'true' : 'false', style: chipStyle(sel === k), pick: () => this.setState({ sel: k }), icon: false, text: true, aria: null }; });
+const custom = !quick.some((q) => iso(q) === sel);
+dates.push(custom ? { top: WD[selD.getDay()], bottom: MON[selD.getMonth()] + ' ' + selD.getDate(), on: 'true', style: chipStyle(true), pick: openCal, icon: false, text: true, aria: 'Change date, ' + WDL[selD.getDay()] + ' ' + MONL[selD.getMonth()] + ' ' + selD.getDate() + ' selected' } : { top: '', bottom: '', on: 'false', style: chipStyle(false) + '; flex: 0 0 60px', pick: openCal, icon: true, text: false, aria: 'More dates, open calendar' });
+const cy = s.calY || today.getFullYear(), cm = s.cal ? s.calM : today.getMonth();
+const first = new Date(cy, cm, 1), nDays = new Date(cy, cm + 1, 0).getDate();
+const cells = [];
+for (let b = 0; b < first.getDay(); b++) cells.push({ blank: true, day: false });
+for (let n = 1; n <= nDays; n++) {
+const d = new Date(cy, cm, n), k = iso(d), past = d < today, closed = !isOpen(d), on = s.calSel === k, isToday = k === iso(today);
+const dis = past || closed;
+cells.push({ blank: false, day: true, n: String(n), on: on ? 'true' : 'false', disabled: dis,
+aria: WDL[d.getDay()] + ', ' + MONL[cm] + ' ' + n + (closed ? ', museum closed' : past ? ', unavailable' : ''),
+style: 'width: 44px; height: 44px; justify-self: center; padding: 0; display: flex; align-items: center; justify-content: center; box-sizing: border-box; border-radius: 50%; font: inherit; font-size: 16px; font-variant-numeric: tabular-nums; cursor: ' + (dis ? 'default' : 'pointer') + '; ' + (on ? 'background: #F9C818; color: #1A1A1F; font-weight: 700; border: 0' : dis ? 'background: transparent; color: #A7A29A; border: 0; text-decoration: ' + (closed && !past ? 'line-through' : 'none') : 'background: transparent; color: #1A1A1F; border: ' + (isToday ? '1.5px solid #1A1A1F' : '0')),
+pick: () => this.setState({ calSel: k }) });
+}
+const atStart = cy === today.getFullYear() && cm === today.getMonth();
+const cs = s.calSel ? fromIso(s.calSel) : null;
+const startMin = selD.getTime() === today.getTime() ? earliest : 600;
+const slots = [];
+for (let t = startMin; t <= lastSlot(selD); t += 30) slots.push(t);
+const selTime = slots.includes(s.time) ? s.time : slots[0];
+const fmt = (t) => { const h = Math.floor(t / 60), m = t % 60, hh = h > 12 ? h - 12 : h; return hh + ':' + (m ? '30' : '00') + (h < 12 ? ' am' : ' pm'); };
+const times = slots.map((k) => ({ label: fmt(k), on: selTime === k ? 'true' : 'false',
+style: pill(selTime === k) + '; flex: 0 0 auto; min-height: 48px; padding: 0 14px; white-space: nowrap; scroll-snap-align: start; font-size: 16px; font-weight: 700', pick: () => { if (this._tDragged) { this._tDragged = false; return; } this.setState({ time: k }); } }));
+const defs = [['Adult','$35'],['Senior 65+','$25'],['Student with ID','$5'],['Youth','Ages 9–16 · Free']];
+const prices = [35, 25, 5, 0];
+const types = defs.map(([label, sub], k) => ({ label, sub, count: String(s.counts[k]),
+rowStyle: 'display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 60px; padding: 4px 0; ' + (k < defs.length - 1 ? 'border-bottom: 1px solid #EEEAE3' : ''),
+decLabel: 'Remove one ' + label + ' ticket', incLabel: 'Add one ' + label + ' ticket',
+dec: () => { const c = s.counts.slice(); c[k] = Math.max(0, c[k] - 1); this.setState({ counts: c }); },
+inc: () => { const c = s.counts.slice(); c[k] = Math.min(9, c[k] + 1); this.setState({ counts: c }); } }));
+const n = s.counts.reduce((a, b) => a + b, 0);
+const total = s.counts.reduce((a, c, k) => a + c * prices[k], 0);
+return {
+pay: !!this.state.pay, openPay: () => this.setState({ pay: true }), closePay: () => this.setState({ pay: false }),
+setRoot: (el) => { this._root = el; },
+trowClass: 'trow' + (s.tGrab ? ' grabbing' : ''),
+setTrow: (el) => { this._trow = el; },
+tDown: (e) => { if (e.button !== 0 || !this._trow) return; this._td = { x: e.clientX, l: this._trow.scrollLeft }; this._tDragged = false; this.setState({ tGrab: true }); },
+tMove: (e) => { const d = this._td; if (!d || !this._trow) return; const dx = e.clientX - d.x; if (Math.abs(dx) > 4) this._tDragged = true; this._trow.scrollLeft = d.l - dx; e.preventDefault(); },
+tUp: () => { if (!this._td) return; this._td = null; this.setState({ tGrab: false }); },
+navWrap: 'position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; ' + (this.state.navHidden ? 'transform: translateY(110%); opacity: 0; transition: transform .28s cubic-bezier(.4,0,1,1), opacity .22s ease-in; pointer-events: none' : 'transform: translateY(0); opacity: 1; transition: transform .5s cubic-bezier(.34,1.45,.64,1), opacity .25s ease-out'),
+payBar: 'position: absolute; left: 0; right: 0; z-index: 2; background: rgba(255,255,255,0.72); -webkit-backdrop-filter: blur(20px) saturate(1.6); backdrop-filter: blur(20px) saturate(1.6); border-top: 1px solid rgba(255,255,255,0.8); box-shadow: 0 -4px 16px rgba(60,45,20,0.06); display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px 98px; bottom: 0',
+dates, times, types,
+calOpen: s.cal, cells, monthLabel: MONL[cm] + ' ' + cy,
+prevDisabled: atStart,
+prevStyle: 'width: 44px; height: 44px; border-radius: 22px; border: 1px solid #CFCAC0; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: ' + (atStart ? 'default; color: #C9C4BA' : 'pointer; color: #1A1A1F'),
+prevMonth: () => { if (atStart) return; const d = new Date(cy, cm - 1, 1); this.setState({ calY: d.getFullYear(), calM: d.getMonth() }); },
+nextMonth: () => { const d = new Date(cy, cm + 1, 1); this.setState({ calY: d.getFullYear(), calM: d.getMonth() }); },
+closeCal: () => this.setState({ cal: false }),
+confirmCal: () => this.setState({ cal: false, sel: s.calSel || sel }),
+confirmLabel: cs ? 'Select ' + WD[cs.getDay()] + ', ' + MON[cs.getMonth()] + ' ' + cs.getDate() : 'Select a date',
+total: '$' + (total + (s.parking ? ((selD.getDay() === 0 || selD.getDay() === 6) ? 10 : 20) : 0)),
+payTotal: n + (n === 1 ? ' ticket' : ' tickets') + (s.parking ? ' + parking' : '') + ' · $' + (total + (s.parking ? ((selD.getDay() === 0 || selD.getDay() === 6) ? 10 : 20) : 0)),
+parkPrice: (selD.getDay() === 0 || selD.getDay() === 6) ? 'Weekend $10 with validation' : 'Up to 2 hours $20',
+scrollClass: s.scrolling ? 'intro scroller is-scrolling' : 'intro scroller',
+onScroll: () => {  if (!this.state.scrolling) this.setState({ scrolling: true }); clearTimeout(this._hideTimer); this._hideTimer = setTimeout(() => this.setState({ scrolling: false }), 900); },
+summary: n + (n === 1 ? ' ticket' : ' tickets') + (s.parking ? ' + parking' : ''),
+parkOn: s.parking ? 'true' : 'false',
+toggleParking: () => this.setState({ parking: !s.parking }),
+switchTrack: 'flex: 0 0 auto; width: 50px; height: 30px; border-radius: 15px; position: relative; background: ' + (s.parking ? '#F9C818; box-shadow: inset 0 0 0 1.5px #B98A00' : '#B9B4AA'),
+switchKnob: 'position: absolute; top: 3px; width: 24px; height: 24px; border-radius: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.25); background: ' + '#FFFFFF' + '; left: ' + (s.parking ? '23px' : '3px')
+};
+}
+}
+</script>
+</body>
+</html>

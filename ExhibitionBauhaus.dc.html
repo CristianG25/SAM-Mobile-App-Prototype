@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bauhaus at Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style id="gh-frame">html{background:#D9D7CC}body{margin:0 auto !important;width:390px;min-height:844px;background:#E8E7D5;box-shadow:0 10px 40px rgba(0,0,0,0.18)}@media (max-width:480px){html{background:#E8E7D5}body{box-shadow:none}}</style>
+<script src="./react.production.min.js"></script>
+<script src="./react-dom.production.min.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<style>
+body{margin:0;font-family:'Atkinson Hyperlegible',Verdana,sans-serif;color:#1A1A1F}
+a{color:#2C3E9E}a:hover{color:#1E2C78}
+.intro>*{animation:rise .7s cubic-bezier(.22,.8,.24,1) both}
+.intro>*:nth-child(1){animation-delay:0.05s}.intro>*:nth-child(2){animation-delay:0.13s}.intro>*:nth-child(3){animation-delay:0.21s}.intro>*:nth-child(4){animation-delay:0.29s}.intro>*:nth-child(5){animation-delay:0.37s}.intro>*:nth-child(6){animation-delay:0.45s}.intro>*:nth-child(7){animation-delay:0.53s}.intro>*:nth-child(8){animation-delay:0.61s}.intro>*:nth-child(9){animation-delay:0.69s}.intro>*:nth-child(10){animation-delay:0.77s}.intro>*:nth-child(11){animation-delay:0.85s}
+.stagger>*{animation:rise .6s cubic-bezier(.22,.8,.24,1) both}
+.stagger>*:nth-child(1){animation-delay:0.35s}.stagger>*:nth-child(2){animation-delay:0.43s}.stagger>*:nth-child(3){animation-delay:0.51s}.stagger>*:nth-child(4){animation-delay:0.59s}.stagger>*:nth-child(5){animation-delay:0.67s}.stagger>*:nth-child(6){animation-delay:0.75s}.stagger>*:nth-child(7){animation-delay:0.83s}
+.hero-in{animation:heroin .9s cubic-bezier(.22,.8,.24,1) both}
+.scrollhide{scrollbar-width:none}.scrollhide::-webkit-scrollbar{display:none}
+.navin{animation:navup .7s cubic-bezier(.22,.8,.24,1) .2s both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes heroin{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+@keyframes navup{from{transform:translateY(100%)}to{transform:none}}
+@media (prefers-reduced-motion: reduce){.intro>*,.stagger>*,.hero-in,.navin{animation:none}}
+.cta{transition:box-shadow .25s ease, transform .25s ease, background-color .25s ease}
+.cta:hover{background-color:#FFD23A !important;box-shadow:0 0 0 4px rgba(249,200,24,0.28),0 8px 28px rgba(249,200,24,0.65),0 2px 6px rgba(120,90,0,0.18);transform:translateY(-1px)}
+.cta:active{transform:translateY(0) scale(.98);box-shadow:0 0 0 3px rgba(249,200,24,0.3),0 3px 10px rgba(249,200,24,0.5)}
+.cta:focus-visible{outline:3px solid #1A1A1F;outline-offset:3px;box-shadow:0 0 0 6px rgba(249,200,24,0.35),0 8px 28px rgba(249,200,24,0.6)}
+@media (prefers-reduced-motion: reduce){.cta,.cta:hover,.cta:active{transition:none;transform:none}}
+.btn2{transition:background-color .2s ease, box-shadow .2s ease, transform .2s ease}
+.btn2:hover:not(:disabled){background-color:#F4F3EA !important;box-shadow:0 4px 12px rgba(26,26,31,0.12);transform:translateY(-1px)}
+.btn2:active:not(:disabled){transform:translateY(0) scale(.98);box-shadow:0 1px 4px rgba(26,26,31,0.12)}
+.btn2:focus-visible{outline:3px solid #2C3E9E;outline-offset:3px}
+.btn2d{transition:background-color .2s ease, box-shadow .2s ease, transform .2s ease}
+.btn2d:hover:not(:disabled){background-color:rgba(245,243,239,0.12) !important;box-shadow:0 0 0 3px rgba(245,243,239,0.12);transform:translateY(-1px)}
+.btn2d:active:not(:disabled){transform:translateY(0) scale(.98)}
+.btn2d:focus-visible{outline:3px solid #FFD45C;outline-offset:3px}
+@media (prefers-reduced-motion: reduce){.btn2,.btn2:hover,.btn2:active,.btn2d,.btn2d:hover,.btn2d:active{transition:none;transform:none}}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="width: 390px; height: 844px; background: #E8E7D5; display: flex; flex-direction: column; overflow: hidden; box-sizing: border-box">
+<div class="hero-in" style="height: 330px; background: #2E3D6B; position: relative; overflow: hidden; flex: 0 0 auto">
+<img src="4b2b6867da23a06ef9cf452bd146f337.jpg" alt="Abstract watercolor of overlapping arcs and bands in red, orange, green and black" style="position: absolute; left: 0; top: 0; width: 390px; height: 330px; object-fit: cover; object-position: 50% 40%; display: block">
+<span style="position: absolute; left: 16px; bottom: 14px; font-size: 12px; color: #FFFFFF; background: rgba(0,0,0,0.6); padding: 3px 8px; border-radius: 4px">Abstract watercolor study</span>
+<a href="Exhibitions.dc.html" aria-label="Back to exhibitions" style="position: absolute; left: 16px; top: 52px; width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; color: #1A1A1F"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 5l-7 7 7 7"></path></svg></a>
+<button type="button" onClick="{{toggleSave}}" aria-pressed="{{savedOn}}" aria-label="Save to my visit" style="{{saveStyle}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"></path></svg></button>
+</div>
+<main class="intro scrollhide" style="flex: 1; min-height: 0; padding: 20px 16px 24px; display: flex; flex-direction: column; gap: 14px; overflow-y: auto">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #8A3A26">Coming soon</span>
+<h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.05">Bauhaus at Home: Design for Everyday Life</h1>
+<p style="margin: 0; font-size: 15px; color: #5A5852; display: flex; flex-direction: column; gap: 2px"><span>April 22 – September 19, 2027 · Level 4</span><span style="font-weight: 700; color: #1A1A1F">Ticket required</span></p>
+<p style="margin: 0; font-size: 16px; line-height: 1.4">From teapots to textiles, see how one design school changed the everyday objects we still live with.</p>
+<div style="display: flex; align-items: center; gap: 12px; background: #FFFFFF; border: 1px solid #E2DED6; border-radius: 14px; padding: 12px 14px">
+<span style="flex: 0 0 44px; height: 44px; border-radius: 12px; background: #FDF3D0; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"></rect><path d="M4 10h16M9 3v4M15 3v4"></path></svg></span>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 700">Opens April 22, 2027</span><span style="font-size: 14px; color: #5A5852">Members preview the week before</span></span>
+</div>
+<button class="cta" type="button" onClick="{{toggleNotify}}" aria-pressed="{{notifyOn}}" style="display: flex; align-items: center; justify-content: center; min-height: 54px; border-radius: 27px; border: 0; background: #F9C818; color: #1A1A1F; font: inherit; font-size: 17px; font-weight: 700; text-decoration: none; cursor: pointer">{{notifyLabel}}</button>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<button class="btn2" type="button" style="display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; border-radius: 25px; border: 1.5px solid #1A1A1F; color: #1A1A1F; background: #FFFFFF; font: inherit; font-size: 16px; font-weight: 700; text-decoration: none; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"></rect><path d="M4 10h16M9 3v4M15 3v4"></path></svg>Add to calendar</button>
+<a class="btn2" href="Membership.dc.html" style="display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; border-radius: 25px; border: 1.5px solid #1A1A1F; color: #1A1A1F; background: #FFFFFF; font: inherit; font-size: 16px; font-weight: 700; text-decoration: none; cursor: pointer">Become a member</a>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+_topReset() { const r = this._root; if (!r) return; [r, ...r.querySelectorAll('*')].forEach(e => { if (e.scrollTop) e.scrollTop = 0; }); }
+_bootTop() { this._topReset(); this._tt1 = setTimeout(() => this._topReset(), 60); this._tt2 = setTimeout(() => this._topReset(), 350); }
+componentDidMount() { this._bootTop(); }
+
+constructor(p) { super(p); this.state = { pace: 'hl', saved: false, notify: false }; }
+renderVals() {
+const hl = this.state.pace === 'hl', saved = this.state.saved, notify = this.state.notify;
+const base = 'display: flex; flex-direction: column; align-items: center; gap: 2px; min-height: 56px; justify-content: center; border-radius: 10px; border: 0; font: inherit; font-size: 15px; cursor: pointer; ';
+const on = 'background: #FFFFFF; color: #1A1A1F; box-shadow: 0 1px 3px rgba(0,0,0,0.12)';
+const off = 'background: transparent; color: #45433E';
+return {
+setRoot: (el) => { this._root = el; },
+hlOn: hl ? 'true' : 'false', fullOn: hl ? 'false' : 'true',
+hlStyle: base + (hl ? on : off), fullStyle: base + (hl ? off : on),
+pickHl: () => this.setState({ pace: 'hl' }), pickFull: () => this.setState({ pace: 'full' }),
+savedOn: saved ? 'true' : 'false', toggleSave: () => this.setState({ saved: !saved }),
+saveStyle: 'position: absolute; right: 16px; top: 52px; width: 44px; height: 44px; border-radius: 22px; border: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #1A1A1F; background: ' + (saved ? '#F9C818' : '#FFFFFF'),
+notifyOn: notify ? 'true' : 'false', notifyLabel: notify ? 'We\'ll remind you' : 'Notify me when it opens',
+toggleNotify: () => this.setState({ notify: !notify })
+};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Museum map</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style id="gh-frame">html{background:#D9D7CC}body{margin:0 auto !important;width:390px;min-height:844px;background:#E8E7D5;box-shadow:0 10px 40px rgba(0,0,0,0.18)}@media (max-width:480px){html{background:#E8E7D5}body{box-shadow:none}}</style>
+<script src="./react.production.min.js"></script>
+<script src="./react-dom.production.min.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<style>
+body{margin:0;font-family:'Atkinson Hyperlegible',Verdana,sans-serif;color:#1A1A1F}
+a{color:#2C3E9E}a:hover{color:#1E2C78}
+.pan{scrollbar-width:thin;scrollbar-color:transparent transparent}
+.pan::-webkit-scrollbar{width:6px;height:6px;background:transparent}
+.pan::-webkit-scrollbar-thumb{background:transparent;border-radius:3px}
+.pan.is-scrolling{scrollbar-color:rgba(26,26,31,0.16) transparent}
+.pan.is-scrolling::-webkit-scrollbar-thumb{background:rgba(26,26,31,0.16)}
+.intro>*{animation:rise .7s cubic-bezier(.22,.8,.24,1) both}
+.intro>*:nth-child(1){animation-delay:0.05s}.intro>*:nth-child(2){animation-delay:0.13s}.intro>*:nth-child(3){animation-delay:0.21s}.intro>*:nth-child(4){animation-delay:0.29s}.intro>*:nth-child(5){animation-delay:0.37s}.intro>*:nth-child(6){animation-delay:0.45s}.intro>*:nth-child(7){animation-delay:0.53s}.intro>*:nth-child(8){animation-delay:0.61s}.intro>*:nth-child(9){animation-delay:0.69s}.intro>*:nth-child(10){animation-delay:0.77s}.intro>*:nth-child(11){animation-delay:0.85s}
+.stagger>*{animation:rise .6s cubic-bezier(.22,.8,.24,1) both}
+.stagger>*:nth-child(1){animation-delay:0.35s}.stagger>*:nth-child(2){animation-delay:0.43s}.stagger>*:nth-child(3){animation-delay:0.51s}.stagger>*:nth-child(4){animation-delay:0.59s}.stagger>*:nth-child(5){animation-delay:0.67s}.stagger>*:nth-child(6){animation-delay:0.75s}.stagger>*:nth-child(7){animation-delay:0.83s}
+.hero-in{animation:heroin .9s cubic-bezier(.22,.8,.24,1) both}
+.navin{animation:navup .7s cubic-bezier(.22,.8,.24,1) .2s both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes heroin{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+@keyframes navup{from{transform:translateY(100%)}to{transform:none}}
+@media (prefers-reduced-motion: reduce){.intro>*,.stagger>*,.hero-in,.navin{animation:none}}
+::-webkit-scrollbar-button{display:none;width:0;height:0}
+::-webkit-scrollbar-corner{background:transparent}
+@media (prefers-reduced-motion: reduce){[style*="translateY(110%)"]{transition:opacity .2s linear !important}}
+.pan{cursor:grab}.pan.grabbing{cursor:grabbing;user-select:none;-webkit-user-select:none}.pan.grabbing button{cursor:grabbing}
+.pan img{-webkit-user-drag:none;user-select:none}
+.beacon::before,.beacon::after{content:'';position:absolute;inset:0;border-radius:50%;background:rgba(44,62,158,0.45);animation:ping 2.2s cubic-bezier(0,0,.2,1) infinite}
+.beacon::after{animation-delay:1.1s}
+@keyframes ping{0%{transform:scale(.6);opacity:.8}100%{transform:scale(3);opacity:0}}
+@media (prefers-reduced-motion: reduce){.beacon::before,.beacon::after{animation:none;opacity:0}}
+.cta{transition:box-shadow .25s ease, transform .25s ease, background-color .25s ease}
+.cta:hover{background-color:#FFD23A !important;box-shadow:0 0 0 4px rgba(249,200,24,0.28),0 8px 28px rgba(249,200,24,0.65),0 2px 6px rgba(120,90,0,0.18);transform:translateY(-1px)}
+.cta:active{transform:translateY(0) scale(.98);box-shadow:0 0 0 3px rgba(249,200,24,0.3),0 3px 10px rgba(249,200,24,0.5)}
+.cta:focus-visible{outline:3px solid #1A1A1F;outline-offset:3px;box-shadow:0 0 0 6px rgba(249,200,24,0.35),0 8px 28px rgba(249,200,24,0.6)}
+@media (prefers-reduced-motion: reduce){.cta,.cta:hover,.cta:active{transition:none;transform:none}}
+.btn2{transition:background-color .2s ease, box-shadow .2s ease, transform .2s ease}
+.btn2:hover:not(:disabled){background-color:#F4F3EA !important;box-shadow:0 4px 12px rgba(26,26,31,0.12);transform:translateY(-1px)}
+.btn2:active:not(:disabled){transform:translateY(0) scale(.98);box-shadow:0 1px 4px rgba(26,26,31,0.12)}
+.btn2:focus-visible{outline:3px solid #2C3E9E;outline-offset:3px}
+.btn2d{transition:background-color .2s ease, box-shadow .2s ease, transform .2s ease}
+.btn2d:hover:not(:disabled){background-color:rgba(245,243,239,0.12) !important;box-shadow:0 0 0 3px rgba(245,243,239,0.12);transform:translateY(-1px)}
+.btn2d:active:not(:disabled){transform:translateY(0) scale(.98)}
+.btn2d:focus-visible{outline:3px solid #FFD45C;outline-offset:3px}
+@media (prefers-reduced-motion: reduce){.btn2,.btn2:hover,.btn2:active,.btn2d,.btn2d:hover,.btn2d:active{transition:none;transform:none}}
+.navi{border-radius:14px;margin:0 2px;transition:background-color .2s ease, color .2s ease}
+.navi svg{transition:translate .2s ease}
+.navi:hover{background-color:rgba(26,26,31,0.045)}
+.navi:hover svg{translate:0 -1px}
+.navi:active{background-color:rgba(26,26,31,0.08)}
+.navi:focus-visible{outline:3px solid #2C3E9E;outline-offset:-3px}
+@media (prefers-reduced-motion: reduce){.navi,.navi svg{transition:none}.navi:hover svg{translate:none}}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="width: 390px; height: 844px; background: #E8E7D5; display: flex; flex-direction: column; overflow: hidden; position: relative; box-sizing: border-box">
+<main class="intro" style="flex: 1; overflow: hidden; padding: 56px 16px 92px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+<h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 36px; line-height: 1">Museum map</h1>
+<button type="button" onClick="{{toggleLarge}}" aria-pressed="{{largeOn}}" style="{{largeBtn}}"><span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 20px">Aa</span>Large text</button>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<label for="map-search" style="font-size: 14px; color: #45433E">Find a gallery, artwork or restroom</label>
+<div style="position: relative; display: flex"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5A5852" stroke-width="2" stroke-linecap="round" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); pointer-events: none"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg><input id="map-search" type="search" placeholder="Search the museum" style="flex: 1; min-width: 0; min-height: 48px; border-radius: 12px; border: 1px solid #B9B4AA; background: #FFFFFF; padding: 0 14px 0 44px; font: inherit; font-size: 16px; color: #1A1A1F; box-sizing: border-box"></div>
+</div>
+<div role="group" aria-label="Choose level" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; background: #F4F3EA; border: 1px solid rgba(255,255,255,0.8); padding: 4px; border-radius: 14px">
+<sc-for list="{{levels}}" as="l" hint-placeholder-count="4">
+<button type="button" onClick="{{l.pick}}" aria-pressed="{{l.on}}" aria-label="{{l.aria}}" style="{{l.style}}">{{l.label}}</button>
+</sc-for>
+</div>
+<div class="{{panClass}}" ref="{{setPan}}" onScroll="{{onPan}}" onMouseDown="{{onDown}}" onMouseMove="{{onMove}}" onMouseUp="{{onUp}}" onMouseLeave="{{onUp}}" style="position: relative; height: 288px; flex: 0 0 288px; background: #FFFFFF; border: 1px solid #E2DED6; border-radius: 16px; overflow: auto; box-shadow: 0 1px 2px rgba(60,45,20,0.06), 0 6px 16px rgba(60,45,20,0.08)">
+<div style="{{planStyle}}">
+<sc-if value="{{isL4}}" hint-placeholder-val="{{ false }}"><img src="d233c7772a360db91c90e053e80a4820.jpg" alt="Level 4 floor plan" draggable="false" style="width: 100%; height: 100%; display: block"></sc-if>
+<sc-if value="{{isL3}}" hint-placeholder-val="{{ false }}"><img src="61c9c8dd702a13c60abe84ae00d51324.jpg" alt="Level 3 floor plan" draggable="false" style="width: 100%; height: 100%; display: block"></sc-if>
+<sc-if value="{{isL2}}" hint-placeholder-val="{{ true }}"><img src="40803cacdcf309d63dceb4f71d076f73.jpg" alt="Level 2 floor plan" draggable="false" style="width: 100%; height: 100%; display: block"></sc-if>
+<sc-if value="{{isLL}}" hint-placeholder-val="{{ false }}"><img src="ec89688629776378dc0744c9441081b4.jpg" alt="Lower level floor plan" draggable="false" style="width: 100%; height: 100%; display: block"></sc-if>
+<sc-for list="{{rooms}}" as="r" hint-placeholder-count="5">
+<button type="button" onClick="{{r.pick}}" aria-pressed="{{r.on}}" aria-label="{{r.aria}}" style="{{r.style}}"></button>
+</sc-for>
+<sc-if value="{{showYou}}" hint-placeholder-val="{{ true }}">
+<div role="img" aria-label="You are here" class="beacon" style="position: absolute; left: 46%; top: 86%; width: 26px; height: 26px; box-sizing: border-box; margin: -13px 0 0 -13px; border-radius: 50%; background: rgba(44,62,158,0.25); display: flex; align-items: center; justify-content: center; pointer-events: none"><div style="position: relative; z-index: 1; flex: 0 0 16px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 50%; background: #2C3E9E; border: 2px solid #FFFFFF; box-shadow: 0 1px 4px rgba(0,0,0,0.3)"></div></div>
+</sc-if>
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 14px; font-size: 13px; color: #45433E; margin-top: -4px">
+<span style="display: flex; align-items: center; gap: 6px"><span style="flex: 0 0 14px; width: 14px; height: 14px; box-sizing: border-box; border-radius: 3px; background: rgba(249,200,24,0.45); border: 1.5px solid #B98A00"></span>Exhibition</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="flex: 0 0 16px; width: 16px; height: 16px; box-sizing: border-box; border-radius: 50%; background: #2C3E9E; border: 2px solid #FFFFFF; box-shadow: 0 0 0 1px #2C3E9E"></span>You are here</span>
+<span>Drag to explore</span>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E2DED6; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="{{titleStyle}}">{{sel.title}}</span>
+<span style="{{subStyle}}">{{sel.sub}}</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<a class="cta" href="Navigate.dc.html" style="display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 24px; background: #F9C818; color: #1A1A1F; font-weight: 700; text-decoration: none">Directions</a>
+<button class="btn2" type="button" style="min-height: 48px; border-radius: 24px; border: 1.5px solid #1A1A1F; background: #FFFFFF; color: #1A1A1F; font: inherit; font-weight: 700; cursor: pointer">Read aloud</button>
+</div>
+</div>
+</main>
+<div style="{{navWrap}}">
+<nav class="navin" aria-label="Main" style="display: flex; justify-content: space-around; height: 84px; padding: 6px 8px 22px; box-sizing: border-box; background: rgba(255,255,255,0.58); -webkit-backdrop-filter: blur(20px) saturate(1.6); backdrop-filter: blur(20px) saturate(1.6); border: 1px solid rgba(255,255,255,0.7); border-bottom: 0; border-radius: 20px 20px 0 0; box-shadow: 0 -2px 6px rgba(60,45,20,0.05), 0 -10px 28px rgba(60,45,20,0.08); position: relative; z-index: 1">
+<a class="navi" href="Main.dc.html" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #33312C; font-size: 12px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"></path></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">Home<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: transparent"></span></span></a>
+<a class="navi" href="Exhibitions.dc.html" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #33312C; font-size: 12px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"></rect><path d="M4 16l5-5 4 4 3-3 4 4"></path></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">On view<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: transparent"></span></span></a>
+<a class="navi" href="Map.dc.html" aria-current="page" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #2C3E9E; font-size: 12px; font-weight: 700"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z" fill="currentColor" stroke="currentColor"></path><path d="M9 4v14M15 6v14" stroke="#FFFFFF" stroke-width="1.4"></path></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">Map<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: #F9C818"></span></span></a>
+<a class="navi" href="Tickets.dc.html" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #33312C; font-size: 12px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"></path></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">Tickets<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: transparent"></span></span></a>
+<a class="navi" href="AudioGuide.dc.html" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #33312C; font-size: 12px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"></path><rect x="3" y="14" width="4" height="6" rx="1.5"></rect><rect x="17" y="14" width="4" height="6" rx="1.5"></rect></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">Audio<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: transparent"></span></span></a>
+</nav>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+_topReset() { const r = this._root; if (!r) return; [r, ...r.querySelectorAll('*')].forEach(e => { if (e.scrollTop) e.scrollTop = 0; }); }
+_bootTop() { this._topReset(); this._tt1 = setTimeout(() => this._topReset(), 60); this._tt2 = setTimeout(() => this._topReset(), 350); }
+
+constructor(p) { super(p); this.state = { level: '2', room: 'Forum Gallery', large: false, panning: false, grabbing: false }; this._pan = null; this._drag = null; this._dragged = false; }
+componentDidMount() { this._bootTop(); setTimeout(() => { if (this._pan) { this._pan.scrollLeft = 110; this._pan.scrollTop = 0; } }, 50); }
+renderVals() {
+const plans = {
+'4': { name: '4th Floor', h: 254, rooms: [
+['Simonyi Special Exhibition Galleries',63,1,27,60,'',4],['European Art',29,40,17,17,'',3],['Wyckoff Porcelain Room',32.5,28,10,11,'',3],['Ancient Mediterranean & Islamic Art',6,40,22,17,'',3],['Italian Room',4,25,8,12,'',4],['Boeing Gallery',31,57,17,12,'',2],['African Art',40,68,25,19,'',3],['Lockwood Foundation Living Room',69,77,15,12,'',4]] },
+'3': { name: '3rd Floor', h: 274, rooms: [
+['Ebsworth Gallery',1,60,25,27,'Journey Beyond the Nile: Egypt and the Afterlife',2],['Wright Galleries for Modern & Contemporary Art',18,42,32,18,'',2],['SAM Next Gallery',35,31,11,11,'The Kondo Family: Storytellers in Clay',2],['Knight/Lawrence Gallery',4,28,9,13,'',2],['Hauberg Galleries: Native Art of the Americas',68,3,16,29,'',4],['American Art',69,58,17,22,'',3],['Oceanic Art',89,31,9,13,'',4],['Teahouse',89,51,9,9,'',4],['Textiles',87,65,10,17,'',4],['Knudsen Family Room',75,80,12,9,'',4]] },
+'2': { name: '2nd Floor', h: 236, rooms: [
+['Forum Gallery',71,60,16,11,'Born of the Sea: Botticelli and the Florentine Renaissance',2],['Chase Open Studio',85,31,12,17,'Monochrome: Calder and Tara Donovan',3],['Brotman Forum',32,72,39,25,'',0],['Sarkowsky Hall',3,79,17,18,'',2],['Arnold Board Room',76,27,9,29,'',3],['Rainier Lobby',89,3,8,12,'',4],['Parking garage elevators',6,62,8,10,'',2]] },
+'LL': { name: '1st Floor', h: 318, rooms: [
+['SAM Shop',5,58,23,32,'',1],['TASTE Restaurant',31,60,23,30,'',1],['Plestcheeff Auditorium',60,30,16,28,'',2],['Nordstrom Lecture Hall',58,3,16,9,'',3],['South Hall',70,64,22,16,'',2],['Simons Board Room',81,13,10,10,'',3]] }
+};
+const lv = this.state.level, large = this.state.large, plan = plans[lv];
+const selName = plan.rooms.some(r => r[0] === this.state.room) ? this.state.room : plan.rooms[0][0];
+let sel = null;
+const rooms = plan.rooms.map(([name,x,y,w,h,show,mins]) => {
+const on = name === selName;
+const walk = mins === 0 ? 'You are here' : mins + ' min walk';
+if (on) sel = { title: show || name, sub: (show ? name + ' · ' : '') + plan.name + ' · ' + walk + ' · Step-free route' };
+const fill = on ? 'rgba(44,62,158,0.20)' : (show ? 'rgba(249,200,24,0.40)' : 'transparent');
+const border = on ? '3px solid #2C3E9E' : (show ? '2px solid #B98A00' : '2px solid transparent');
+return {
+ aria: (show ? show + ', ' : '') + name, on: on ? 'true' : 'false',
+style: 'position: absolute; left: ' + x + '%; top: ' + y + '%; width: ' + w + '%; height: ' + h + '%; background: ' + fill + '; border: ' + border + '; border-radius: 6px; box-sizing: border-box; padding: 0; cursor: pointer',
+pick: () => { if (this._dragged) { this._dragged = false; return; } this.setState({ room: name }); } };
+});
+const levels = [['LL','1st Floor','1st Floor'],['2','2nd Floor','2nd Floor'],['3','3rd Floor','3rd Floor'],['4','4th Floor','4th Floor']].map(([k,label,aria]) => ({ label, aria, on: k === lv ? 'true' : 'false',
+style: 'min-height: 44px; padding: 0 4px; white-space: nowrap; border-radius: 10px; border: 0; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; ' + (k === lv ? 'background: #1A1A1F; color: #FFFFFF' : 'background: transparent; color: #1A1A1F'),
+pick: () => this.setState({ level: k }) }));
+return {
+setRoot: (el) => { this._root = el; },
+navWrap: 'position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; ' + (this.state.navHidden ? 'transform: translateY(110%); opacity: 0; transition: transform .28s cubic-bezier(.4,0,1,1), opacity .22s ease-in; pointer-events: none' : 'transform: translateY(0); opacity: 1; transition: transform .5s cubic-bezier(.34,1.45,.64,1), opacity .25s ease-out'),
+rooms, levels, sel,
+isL4: lv === '4', isL3: lv === '3', isL2: lv === '2', isLL: lv === 'LL', showYou: lv === '2',
+planStyle: 'position: relative; width: 560px; height: ' + plan.h + 'px; margin: 8px',
+panClass: 'pan' + (this.state.panning ? ' is-scrolling' : '') + (this.state.grabbing ? ' grabbing' : ''),
+setPan: (el) => { this._pan = el; },
+onDown: (e) => { if (e.button !== 0 || !this._pan) return; this._drag = { x: e.clientX, y: e.clientY, l: this._pan.scrollLeft, t: this._pan.scrollTop }; this._dragged = false; this.setState({ grabbing: true }); },
+onMove: (e) => { const d = this._drag; if (!d || !this._pan) return; const dx = e.clientX - d.x, dy = e.clientY - d.y; if (Math.abs(dx) + Math.abs(dy) > 4) this._dragged = true; this._pan.scrollLeft = d.l - dx; this._pan.scrollTop = d.t - dy; e.preventDefault(); },
+onUp: () => { if (!this._drag) return; this._drag = null; this.setState({ grabbing: false }); },
+onPan: () => {  if (!this.state.panning) this.setState({ panning: true }); clearTimeout(this._t); this._t = setTimeout(() => this.setState({ panning: false }), 900); },
+titleStyle: "font-family: 'Instrument Serif', Georgia, serif; line-height: 1.1; font-size: " + (large ? 30 : 24) + 'px',
+subStyle: 'color: #5A5852; font-size: ' + (large ? 18 : 14) + 'px',
+largeOn: large ? 'true' : 'false',
+largeBtn: 'display: flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; border-radius: 22px; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; ' + (large ? 'background: #1A1A1F; color: #FFFFFF; border: 1px solid #1A1A1F' : 'background: #FFFFFF; color: #1A1A1F; border: 1px solid #B9B4AA'),
+toggleLarge: () => this.setState({ large: !large })
+};
+}
+}
+</script>
+</body>
+</html>

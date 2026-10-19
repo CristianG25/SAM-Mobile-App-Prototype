@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SAM Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style id="gh-frame">html{background:#D9D7CC}body{margin:0 auto !important;width:390px;min-height:844px;background:#E8E7D5;box-shadow:0 10px 40px rgba(0,0,0,0.18)}@media (max-width:480px){html{background:#E8E7D5}body{box-shadow:none}}</style>
+<script src="./react.production.min.js"></script>
+<script src="./react-dom.production.min.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<style>
+body{margin:0;font-family:'Atkinson Hyperlegible',Verdana,sans-serif;color:#1A1A1F}
+a{color:#2C3E9E}a:hover{color:#1E2C78}
+.intro>*{animation:rise .7s cubic-bezier(.22,.8,.24,1) both}
+.intro>*:nth-child(1){animation-delay:.05s}.intro>*:nth-child(2){animation-delay:.15s}.intro>*:nth-child(3){animation-delay:.25s}.intro>*:nth-child(4){animation-delay:.4s}.intro>*:nth-child(5){animation-delay:.55s}.intro>*:nth-child(6){animation-delay:.65s}
+.tiles>*{animation:pop .6s cubic-bezier(.22,.8,.24,1) both}
+.tiles>*:nth-child(1){animation-delay:.3s}.tiles>*:nth-child(2){animation-delay:.36s}.tiles>*:nth-child(3){animation-delay:.42s}.tiles>*:nth-child(4){animation-delay:.48s}
+.row>*{animation:slide .8s cubic-bezier(.22,.8,.24,1) both}
+.row>*:nth-child(1){animation-delay:.5s}.row>*:nth-child(2){animation-delay:.6s}.row>*:nth-child(3){animation-delay:.7s}.row>*:nth-child(4){animation-delay:.8s}
+.navin{animation:navup .7s cubic-bezier(.22,.8,.24,1) .2s both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes slide{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+@keyframes navup{from{transform:translateY(100%)}to{transform:none}}
+@media (prefers-reduced-motion: reduce){.intro>*,.tiles>*,.row>*,.navin{animation:none}}
+.row{scrollbar-width:none;scroll-snap-type:x mandatory;scroll-behavior:smooth;cursor:grab}.row.grabbing{scroll-snap-type:none;scroll-behavior:auto;cursor:grabbing;user-select:none;-webkit-user-select:none}.row.grabbing a{cursor:grabbing}.row a,.row img{-webkit-user-drag:none}
+.row::-webkit-scrollbar{display:none}
+.scroller{scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:transparent transparent}
+.scroller::-webkit-scrollbar{width:6px;background:transparent}
+.scroller::-webkit-scrollbar-thumb{background:transparent;border-radius:3px}
+.scroller.is-scrolling{scrollbar-color:rgba(26,26,31,0.16) transparent}
+.scroller.is-scrolling::-webkit-scrollbar-thumb{background:rgba(26,26,31,0.16)}
+.hdr-in{animation:rise .7s cubic-bezier(.22,.8,.24,1) .05s both}
+@media (prefers-reduced-motion: reduce){.hdr-in{animation:none}}
+@media (prefers-reduced-motion: reduce){[style*="translateY(110%)"]{transition:opacity .2s linear !important}}
+::-webkit-scrollbar-button{display:none;width:0;height:0}
+::-webkit-scrollbar-corner{background:transparent}
+.cta{transition:box-shadow .25s ease, transform .25s ease, background-color .25s ease}
+.cta:hover{background-color:#FFD23A !important;box-shadow:0 0 0 4px rgba(249,200,24,0.28),0 8px 28px rgba(249,200,24,0.65),0 2px 6px rgba(120,90,0,0.18);transform:translateY(-1px)}
+.cta:active{transform:translateY(0) scale(.98);box-shadow:0 0 0 3px rgba(249,200,24,0.3),0 3px 10px rgba(249,200,24,0.5)}
+.cta:focus-visible{outline:3px solid #1A1A1F;outline-offset:3px;box-shadow:0 0 0 6px rgba(249,200,24,0.35),0 8px 28px rgba(249,200,24,0.6)}
+@media (prefers-reduced-motion: reduce){.cta,.cta:hover,.cta:active{transition:none;transform:none}}
+.navi{border-radius:14px;margin:0 2px;transition:background-color .2s ease, color .2s ease}
+.navi svg{transition:translate .2s ease}
+.navi:hover{background-color:rgba(26,26,31,0.045)}
+.navi:hover svg{translate:0 -1px}
+.navi:active{background-color:rgba(26,26,31,0.08)}
+.navi:focus-visible{outline:3px solid #2C3E9E;outline-offset:-3px}
+@media (prefers-reduced-motion: reduce){.navi,.navi svg{transition:none}.navi:hover svg{translate:none}}
+.qtile{transition:background-color .2s ease, box-shadow .2s ease, translate .2s ease}
+.qtile:hover{background-color:rgba(255,255,255,0.72) !important;box-shadow:0 2px 4px rgba(60,45,20,0.08),0 12px 24px rgba(60,45,20,0.12) !important;translate:0 -2px}
+.qtile:active{translate:0 0;box-shadow:0 1px 2px rgba(60,45,20,0.08),0 4px 10px rgba(60,45,20,0.1) !important}
+.qtile:focus-visible{outline:3px solid #2C3E9E;outline-offset:3px}
+@media (prefers-reduced-motion: reduce){.qtile,.qtile:hover{transition:none;translate:none}}
+.carbtn{position:absolute;top:50px;width:40px;height:40px;border-radius:20px;border:1px solid rgba(255,255,255,0.8);background:rgba(255,255,255,0.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#1A1A1F;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 8px rgba(26,26,31,0.18);opacity:0;pointer-events:none;transition:opacity .2s ease, background-color .2s ease, translate .2s ease;z-index:2}
+.carprev{left:6px}.carnext{right:6px}
+.carwrap:hover .carbtn,.carbtn:focus-visible{opacity:1;pointer-events:auto}
+.carbtn:hover{background:#FFFFFF}
+.carprev:hover{translate:-1px 0}.carnext:hover{translate:1px 0}
+.carbtn:focus-visible{outline:3px solid #2C3E9E;outline-offset:2px}
+@media (prefers-reduced-motion: reduce){.carbtn{transition:none}.carbtn:hover{translate:none}}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="width: 390px; height: 844px; background: #E8E7D5; display: flex; flex-direction: column; overflow: hidden; position: relative; box-sizing: border-box">
+<header class="hdr-in" style="{{hdrStyle}}">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div role="img" aria-label="Seattle Art Museum logo" style="width: 80px; height: 31px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #45433E; box-sizing: border-box"><img src="1c91ec551f3caff0d777f61f7b78e6fd.webp" alt="sam_black_logo" width="300" height="116" style="max-width: 100%; height: auto; display: block; object-fit: cover; width: 300px; aspect-ratio: 300 / 116"></div>
+<span style="font-size: 14px; color: #5A5852">Open today · 10 am–5 pm</span>
+</div>
+<a href="Membership.dc.html" aria-label="Account and membership" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #CFCAC0; display: flex; align-items: center; justify-content: center; color: #1A1A1F; background: #FFFFFF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></a>
+</header>
+<main class="{{scrollClass}}" onScroll="{{onScroll}}" style="flex: 1; min-height: 0; overflow-y: auto; padding: 128px 10px 108px 16px; display: flex; flex-direction: column; gap: 20px">
+
+<h1 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 38px; line-height: 1.05; letter-spacing: -0.5px">Slow down.<br><em style="color: {{accent}}">We'll handle the rest.</em></h1>
+<div class="tiles" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<a href="Tickets.dc.html" class="qtile" style="min-height: 76px; background: rgba(255,255,255,0.42); border: 1px solid rgba(255,255,255,0.65); border-radius: 16px; padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: #1A1A1F; box-shadow: 0 1px 2px rgba(60,45,20,0.06), 0 6px 16px rgba(60,45,20,0.08)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.8" stroke-linejoin="round"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"></path><path d="M14 7v10" stroke-dasharray="2 2"></path></svg><span style="font-size: 16px; font-weight: 700">Buy tickets</span></a>
+<a href="Map.dc.html" class="qtile" style="min-height: 76px; background: rgba(255,255,255,0.42); border: 1px solid rgba(255,255,255,0.65); border-radius: 16px; padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: #1A1A1F; box-shadow: 0 1px 2px rgba(60,45,20,0.06), 0 6px 16px rgba(60,45,20,0.08)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.8" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"></path><path d="M9 4v14M15 6v14"></path></svg><span style="font-size: 16px; font-weight: 700">Museum map</span></a>
+<a href="Parking.dc.html" class="qtile" style="min-height: 76px; background: rgba(255,255,255,0.42); border: 1px solid rgba(255,255,255,0.65); border-radius: 16px; padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: #1A1A1F; box-shadow: 0 1px 2px rgba(60,45,20,0.06), 0 6px 16px rgba(60,45,20,0.08)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"></rect><path d="M9 17V7h4a3 3 0 0 1 0 6H9"></path></svg><span style="font-size: 16px; font-weight: 700">Parking</span></a>
+<a href="AudioGuide.dc.html" class="qtile" style="min-height: 76px; background: rgba(255,255,255,0.42); border: 1px solid rgba(255,255,255,0.65); border-radius: 16px; padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: #1A1A1F; box-shadow: 0 1px 2px rgba(60,45,20,0.06), 0 6px 16px rgba(60,45,20,0.08)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.8" stroke-linecap="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"></path><rect x="3" y="14" width="4" height="6" rx="1.5"></rect><rect x="17" y="14" width="4" height="6" rx="1.5"></rect></svg><span style="font-size: 16px; font-weight: 700">Audio guide</span></a>
+</div>
+<section style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h2 style="margin: 0; font-size: 18px; font-weight: 700">On view now</h2>
+<a href="Exhibitions.dc.html" style="font-size: 15px; font-weight: 700; min-height: 44px; display: flex; align-items: center">See all</a>
+</div>
+<div class="carwrap" style="position: relative">
+<div class="{{rowClass}}" ref="{{setRow}}" onMouseEnter="{{pause}}" onTouchStart="{{pause}}" onFocus="{{pause}}" onMouseDown="{{rDown}}" onMouseMove="{{rMove}}" onMouseUp="{{rUp}}" onMouseLeave="{{rUp}}" onClickCapture="{{rClick}}" aria-label="On view now" role="region" style="display: flex; gap: 12px; margin-right: -10px; padding-right: 10px; overflow-x: auto">
+<a href="Exhibition.dc.html" style="scroll-snap-align: start; flex: 0 0 250px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #1A1A1F">
+<img src="70a38660bc221fb69de2c62284241782.jpg" alt="Sandro Botticelli, The Birth of Venus" style="width: 250px; height: 140px; border-radius: 14px; object-fit: cover; object-position: 48% 40%; display: block">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #8A3A26">Special exhibition</span>
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; line-height: 1.1">Born of the Sea: Botticelli and the Florentine Renaissance</span>
+<span style="font-size: 14px; color: #5A5852">Oct 1–Dec 20 · Level 2</span>
+</a>
+<a href="ExhibitionNile.dc.html" style="scroll-snap-align: start; flex: 0 0 250px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #1A1A1F">
+<img src="c63c2a163de729b06335b37000508338.jpg" alt="Ancient Egyptian painted wall scene of an offering to Osiris" style="width: 250px; height: 140px; border-radius: 14px; object-fit: cover; object-position: 50% 35%; display: block">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #8A3A26">Special exhibition</span>
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; line-height: 1.1">Journey Beyond the Nile: Egypt and the Afterlife</span>
+<span style="font-size: 14px; color: #5A5852">Sep 5–Jan 10 · Level 3</span>
+</a>
+<a href="ExhibitionMono.dc.html" style="scroll-snap-align: start; flex: 0 0 250px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #1A1A1F">
+<img src="2a17403471e3109b5ea5ef17f5f5f609.jpg" alt="Detail of a sculpture made of clustered translucent discs in grey and silver" style="width: 250px; height: 140px; border-radius: 14px; object-fit: cover; display: block">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #8A3A26">Special exhibition</span>
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; line-height: 1.1">Monochrome: Calder and Tara Donovan</span>
+<span style="font-size: 14px; color: #5A5852">May 13–Jan 17 · Level 2</span>
+</a>
+<a href="ExhibitionKondo.dc.html" style="scroll-snap-align: start; flex: 0 0 250px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: #1A1A1F">
+<img src="6720d2c63ec68d878a6d5706819b0144.jpg" alt="Five smoke-fired ceramic heads with upturned faces" style="width: 250px; height: 140px; border-radius: 14px; object-fit: cover; object-position: 50% 45%; display: block">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #8A3A26">Special exhibition</span>
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; line-height: 1.1">The Kondo Family: Storytellers in Clay</span>
+<span style="font-size: 14px; color: #5A5852">Aug 22–Feb 28 · Level 3</span>
+</a>
+</div>
+<button type="button" class="carbtn carprev" onClick="{{carPrev}}" aria-label="Previous exhibition"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></button><button type="button" class="carbtn carnext" onClick="{{carNext}}" aria-label="Next exhibition"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></button>
+</div>
+</section>
+<a class="cta" href="Membership.dc.html" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #F9C818; color: #1A1A1F; border-radius: 16px; padding: 14px 16px; text-decoration: none; min-height: 64px; box-sizing: border-box">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 700">Become a member</span><span style="font-size: 14px">Free admission all year, member events</span></span>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1A1F" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"></path></svg>
+</a>
+<a href="#" style="flex: 0 0 auto; display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #E2DED6; color: #1A1A1F; border-radius: 16px; overflow: hidden; text-decoration: none">
+<img src="c4b64e0be41bee66cae4eb09d04fe2dd.jpg" alt="Hand-painted ceramic cups with an owl, a cat, a dog and an octopus" style="width: 100%; height: 170px; object-fit: cover; object-position: 50% 55%; display: block">
+<span style="display: flex; align-items: center; gap: 12px; padding: 14px 16px">
+<span style="flex: 1; display: flex; flex-direction: column; gap: 3px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #8A3A26">Shop</span>
+<span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 24px; line-height: 1.1">Local Makers</span>
+<span style="font-size: 14px; color: #5A5852">Handmade ceramics and gifts by local artists</span>
+</span>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1A1F" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"></path></svg>
+</span>
+</a>
+</main>
+<div style="{{navWrap}}">
+<nav class="navin" aria-label="Main" style="display: flex; justify-content: space-around; height: 84px; padding: 6px 8px 22px; box-sizing: border-box; background: rgba(255,255,255,0.58); -webkit-backdrop-filter: blur(20px) saturate(1.6); backdrop-filter: blur(20px) saturate(1.6); border: 1px solid rgba(255,255,255,0.7); border-bottom: 0; border-radius: 20px 20px 0 0; box-shadow: 0 -2px 6px rgba(60,45,20,0.05), 0 -10px 28px rgba(60,45,20,0.08); position: relative; z-index: 1">
+<a class="navi" href="Main.dc.html" aria-current="page" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: {{accent}}; font-size: 12px; font-weight: 700"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"></path></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">Home<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: #F9C818"></span></span></a>
+<a class="navi" href="Exhibitions.dc.html" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #33312C; font-size: 12px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1"></rect><path d="M4 16l5-5 4 4 3-3 4 4"></path></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">On view<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: transparent"></span></span></a>
+<a class="navi" href="Map.dc.html" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #33312C; font-size: 12px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"></path><path d="M9 4v14M15 6v14"></path></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">Map<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: transparent"></span></span></a>
+<a class="navi" href="Tickets.dc.html" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #33312C; font-size: 12px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4z"></path></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">Tickets<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: transparent"></span></span></a>
+<a class="navi" href="AudioGuide.dc.html" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #33312C; font-size: 12px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"></path><rect x="3" y="14" width="4" height="6" rx="1.5"></rect><rect x="17" y="14" width="4" height="6" rx="1.5"></rect></svg><span style="display: flex; flex-direction: column; align-items: stretch; gap: 3px">Audio<span aria-hidden="true" style="height: 4px; border-radius: 2px; background: transparent"></span></span></a>
+</nav>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#2C3E9E","options":["#2C3E9E","#8A3A26","#1F5E4E"]},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+_topReset() { const r = this._root; if (!r) return; [r, ...r.querySelectorAll('*')].forEach(e => { if (e.scrollTop) e.scrollTop = 0; }); }
+_bootTop() { this._topReset(); this._tt1 = setTimeout(() => this._topReset(), 60); this._tt2 = setTimeout(() => this._topReset(), 350); }
+
+constructor(p) { super(p); this.state = { scrolling: false, auto: true }; this._row = null; }
+componentDidMount() { this._bootTop();
+const resetRow = () => { const el = this._row; if (!el) return; const prev = el.style.scrollBehavior; el.style.scrollBehavior = 'auto'; el.scrollLeft = 0; el.style.scrollBehavior = prev; };
+resetRow(); this._r1 = setTimeout(resetRow, 60); this._r2 = setTimeout(resetRow, 900);
+try { if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) this.setState({ auto: false }); } catch (e) {}
+this._iv = setInterval(() => {
+const el = this._row;
+if (!this.state.auto || !el) return;
+const max = el.scrollWidth - el.clientWidth;
+if (el.scrollLeft >= max - 4) { this.setState({ auto: false }); return; } el.scrollBy({ left: 262 });
+}, 3500);
+}
+componentWillUnmount() { clearTimeout(this._r1); clearTimeout(this._r2); clearInterval(this._iv); clearTimeout(this._hideTimer); clearTimeout(this._navTimer); }
+renderVals() {
+return {
+carPrev: () => { if (!this._row) return; if (this.state.auto) this.setState({ auto: false }); this._row.scrollBy({ left: -262, behavior: 'smooth' }); },
+carNext: () => { if (!this._row) return; if (this.state.auto) this.setState({ auto: false }); this._row.scrollBy({ left: 262, behavior: 'smooth' }); },
+setRoot: (el) => { this._root = el; },
+rowClass: 'row' + (this.state.rGrab ? ' grabbing' : ''),
+rDown: (e) => { if (e.button !== 0 || !this._row) return; this._rd = { x: e.clientX, l: this._row.scrollLeft }; this._rDragged = false; if (this.state.auto) this.setState({ auto: false }); this.setState({ rGrab: true }); },
+rMove: (e) => { const d = this._rd; if (!d || !this._row) return; const dx = e.clientX - d.x; if (Math.abs(dx) > 5) this._rDragged = true; this._row.scrollLeft = d.l - dx; e.preventDefault(); },
+rUp: () => { if (!this._rd) return; this._rd = null; this.setState({ rGrab: false }); },
+rClick: (e) => { if (this._rDragged) { e.preventDefault(); e.stopPropagation(); this._rDragged = false; } },
+accent: this.props.accent ?? '#2C3E9E',
+navWrap: 'position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; ' + (this.state.navHidden ? 'transform: translateY(110%); opacity: 0; transition: transform .28s cubic-bezier(.4,0,1,1), opacity .22s ease-in; pointer-events: none' : 'transform: translateY(0); opacity: 1; transition: transform .5s cubic-bezier(.34,1.45,.64,1), opacity .25s ease-out'),
+hdrStyle: 'position: absolute; top: 0; left: 0; right: 0; z-index: 4; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 56px 16px 12px; background: rgba(232,231,213,0.6); -webkit-backdrop-filter: blur(20px) saturate(1.6); backdrop-filter: blur(20px) saturate(1.6); transition: box-shadow .25s ease, border-color .25s ease; border-bottom: 1px solid ' + (this.state.scrolled ? 'rgba(255,255,255,0.7); box-shadow: 0 6px 18px rgba(60,45,20,0.10)' : 'transparent'),
+setRow: (el) => { this._row = el; },
+auto: this.state.auto, notAuto: !this.state.auto,
+playLabel: this.state.auto ? 'Pause carousel' : 'Play carousel',
+togglePlay: () => this.setState({ auto: !this.state.auto }),
+pause: () => { if (this.state.auto) this.setState({ auto: false }); },
+scrollClass: this.state.scrolling ? 'intro scroller is-scrolling' : 'intro scroller',
+onScroll: (e) => { const st = e && e.currentTarget ? e.currentTarget.scrollTop : 0; if ((st > 4) !== !!this.state.scrolled) this.setState({ scrolled: st > 4 }); if (!this.state.scrolling) this.setState({ scrolling: true }); clearTimeout(this._hideTimer); this._hideTimer = setTimeout(() => this.setState({ scrolling: false }), 900); }
+};
+}
+}
+</script>
+</body>
+</html>
